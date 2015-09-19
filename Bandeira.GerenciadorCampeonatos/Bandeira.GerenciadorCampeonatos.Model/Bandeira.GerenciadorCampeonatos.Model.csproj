@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Campeonato.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competidor.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="GerenciadorCampeonatos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,8 +67,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Resultado.cs" />
+    <Compile Include="Jogador.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Partida.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pontuacao.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resultado.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rodada.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="GerenciadorCampeonatos.edmx">

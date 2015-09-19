@@ -25,5 +25,12 @@ namespace Bandeira.GerenciadorCampeonatos.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Campeonato> Campeonatos { get; set; }
+        public DbSet<Rodada> Rodadas { get; set; }
+        public DbSet<Partida> Partidas { get; set; }
+        public DbSet<Competidor> Competidores { get; set; }
+        public DbSet<Jogador> Jogadores { get; set; }
+        public DbSet<Pontuacao> Pontuacoes { get; set; }
+        public DbSet<Resultado> Resultados { get; set; }
     }
 }
