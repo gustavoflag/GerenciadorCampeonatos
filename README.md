@@ -1,2 +1,2 @@
 # GerenciadorCampeonatos
-Sistemaa para gerenciar todo tipo de campeonato
+Sistema para gerenciar todo tipo de campeonato
