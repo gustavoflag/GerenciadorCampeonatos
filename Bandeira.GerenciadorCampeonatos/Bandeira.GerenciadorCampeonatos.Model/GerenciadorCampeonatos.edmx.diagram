@@ -28,7 +28,7 @@
         <AssociationConnector Association="GerenciadorCampeonatos.PartidaResultado" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Local" Width="1.5" PointX="2.875" PointY="6.875" />
         <AssociationConnector Association="GerenciadorCampeonatos.LocalPartida" />
-        <EntityTypeShape EntityType="GerenciadorCampeonatos.JogadorCampeonato" Width="1.5" PointX="1.375" PointY="2.25" />
+        <EntityTypeShape EntityType="GerenciadorCampeonatos.JogadorCampeonato" Width="2.25" PointX="1.375" PointY="2.25" />
         <AssociationConnector Association="GerenciadorCampeonatos.CampeonatoJogadorCampeonato" />
         <AssociationConnector Association="GerenciadorCampeonatos.JogadorCampeonatoJogador" />
       </Diagram>
