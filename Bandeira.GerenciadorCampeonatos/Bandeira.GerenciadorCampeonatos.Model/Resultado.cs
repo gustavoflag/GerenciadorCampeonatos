@@ -16,8 +16,11 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     {
         public int Id { get; set; }
         public int PontuacaoId { get; set; }
+        public int PartidaId { get; set; }
+        public Nullable<int> Valor { get; set; }
     
         public virtual Pontuacao Pontuacao { get; set; }
         public virtual Competidor Competidor { get; set; }
+        public virtual Partida Partida { get; set; }
     }
 }

@@ -21,6 +21,10 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
         public int Id { get; set; }
         public int CampeonatoId { get; set; }
+        public int Colocacao { get; set; }
+        public int Pontos { get; set; }
+        public System.DateTime DtCadastro { get; set; }
+        public bool Ativo { get; set; }
     
         public virtual Campeonato Campeonato { get; set; }
         public virtual ICollection<Resultado> Resultados { get; set; }

@@ -1,0 +1,7 @@
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\Bandeira.GerenciadorCampeonatos.Model.dll.config
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\Bandeira.GerenciadorCampeonatos.Model.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\Bandeira.GerenciadorCampeonatos.Model.pdb
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\EntityFramework.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\EntityFramework.xml
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\obj\Debug\Bandeira.GerenciadorCampeonatos.Model.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\obj\Debug\Bandeira.GerenciadorCampeonatos.Model.pdb

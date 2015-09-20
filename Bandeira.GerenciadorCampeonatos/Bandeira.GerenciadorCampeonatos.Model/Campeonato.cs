@@ -18,11 +18,14 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         {
             this.Rodadas = new HashSet<Rodada>();
             this.Pontuacoes = new HashSet<Pontuacao>();
+            this.Jogadores = new HashSet<JogadorCampeonato>();
         }
     
         public int Id { get; set; }
+        public string Nome { get; set; }
     
         public virtual ICollection<Rodada> Rodadas { get; set; }
         public virtual ICollection<Pontuacao> Pontuacoes { get; set; }
+        public virtual ICollection<JogadorCampeonato> Jogadores { get; set; }
     }
 }

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GerenciadorCampeonatos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="GerenciadorCampeonatosContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Campeonatos" EntityType="GerenciadorCampeonatos.Campeonato" />
+    <EntitySet Name="Rodadas" EntityType="GerenciadorCampeonatos.Rodada" />
+    <EntitySet Name="Partidas" EntityType="GerenciadorCampeonatos.Partida" />
+    <EntitySet Name="Competidores" EntityType="GerenciadorCampeonatos.Competidor" />
+    <EntitySet Name="Jogadores" EntityType="GerenciadorCampeonatos.Jogador" />
+    <EntitySet Name="Pontuacoes" EntityType="GerenciadorCampeonatos.Pontuacao" />
+    <EntitySet Name="Resultados" EntityType="GerenciadorCampeonatos.Resultado" />
+    <AssociationSet Name="CampeonatoRodada" Association="GerenciadorCampeonatos.CampeonatoRodada">
+      <End Role="Campeonato" EntitySet="Campeonatos" />
+      <End Role="Rodada" EntitySet="Rodadas" />
+    </AssociationSet>
+    <AssociationSet Name="RodadaPartida" Association="GerenciadorCampeonatos.RodadaPartida">
+      <End Role="Rodada" EntitySet="Rodadas" />
+      <End Role="Partida" EntitySet="Partidas" />
+    </AssociationSet>
+    <AssociationSet Name="PartidaCompetidor" Association="GerenciadorCampeonatos.PartidaCompetidor">
+      <End Role="Partida" EntitySet="Partidas" />
+      <End Role="Competidor" EntitySet="Competidores" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorCompetidor" Association="GerenciadorCampeonatos.JogadorCompetidor">
+      <End Role="Jogador" EntitySet="Jogadores" />
+      <End Role="Competidor" EntitySet="Competidores" />
+    </AssociationSet>
+    <AssociationSet Name="CampeonatoPontuacao" Association="GerenciadorCampeonatos.CampeonatoPontuacao">
+      <End Role="Campeonato" EntitySet="Campeonatos" />
+      <End Role="Pontuacao" EntitySet="Pontuacoes" />
+    </AssociationSet>
+    <AssociationSet Name="PontuacaoResultado" Association="GerenciadorCampeonatos.PontuacaoResultado">
+      <End Role="Pontuacao" EntitySet="Pontuacoes" />
+      <End Role="Resultado" EntitySet="Resultados" />
+    </AssociationSet>
+    <AssociationSet Name="CompetidorResultado" Association="GerenciadorCampeonatos.CompetidorResultado">
+      <End Role="Competidor" EntitySet="Competidores" />
+      <End Role="Resultado" EntitySet="Resultados" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Campeonato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rodadas" Relationship="GerenciadorCampeonatos.CampeonatoRodada" FromRole="Campeonato" ToRole="Rodada" />
+    <NavigationProperty Name="Pontuacoes" Relationship="GerenciadorCampeonatos.CampeonatoPontuacao" FromRole="Campeonato" ToRole="Pontuacao" />
+  </EntityType>
+  <EntityType Name="Rodada">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Campeonato" Relationship="GerenciadorCampeonatos.CampeonatoRodada" FromRole="Rodada" ToRole="Campeonato" />
+    <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
+    <NavigationProperty Name="Partidas" Relationship="GerenciadorCampeonatos.RodadaPartida" FromRole="Rodada" ToRole="Partida" />
+  </EntityType>
+  <EntityType Name="Partida">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rodada" Relationship="GerenciadorCampeonatos.RodadaPartida" FromRole="Partida" ToRole="Rodada" />
+    <Property Type="Int32" Name="RodadaId" Nullable="false" />
+    <NavigationProperty Name="Competidores" Relationship="GerenciadorCampeonatos.PartidaCompetidor" FromRole="Partida" ToRole="Competidor" />
+  </EntityType>
+  <EntityType Name="Competidor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Partida" Relationship="GerenciadorCampeonatos.PartidaCompetidor" FromRole="Competidor" ToRole="Partida" />
+    <Property Type="Int32" Name="PartidaId" Nullable="false" />
+    <NavigationProperty Name="Jogador" Relationship="GerenciadorCampeonatos.JogadorCompetidor" FromRole="Competidor" ToRole="Jogador" />
+    <NavigationProperty Name="Resultado" Relationship="GerenciadorCampeonatos.CompetidorResultado" FromRole="Competidor" ToRole="Resultado" />
+  </EntityType>
+  <EntityType Name="Jogador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Competidor" Relationship="GerenciadorCampeonatos.JogadorCompetidor" FromRole="Jogador" ToRole="Competidor" />
+  </EntityType>
+  <EntityType Name="Pontuacao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Campeonato" Relationship="GerenciadorCampeonatos.CampeonatoPontuacao" FromRole="Pontuacao" ToRole="Campeonato" />
+    <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
+    <NavigationProperty Name="Resultados" Relationship="GerenciadorCampeonatos.PontuacaoResultado" FromRole="Pontuacao" ToRole="Resultado" />
+  </EntityType>
+  <EntityType Name="Resultado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Pontuacao" Relationship="GerenciadorCampeonatos.PontuacaoResultado" FromRole="Resultado" ToRole="Pontuacao" />
+    <Property Type="Int32" Name="PontuacaoId" Nullable="false" />
+    <NavigationProperty Name="Competidor" Relationship="GerenciadorCampeonatos.CompetidorResultado" FromRole="Resultado" ToRole="Competidor" />
+  </EntityType>
+  <Association Name="CampeonatoRodada">
+    <End Type="GerenciadorCampeonatos.Campeonato" Role="Campeonato" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Rodada" Role="Rodada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rodada">
+        <PropertyRef Name="CampeonatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RodadaPartida">
+    <End Type="GerenciadorCampeonatos.Rodada" Role="Rodada" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Partida" Role="Partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodada">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partida">
+        <PropertyRef Name="RodadaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PartidaCompetidor">
+    <End Type="GerenciadorCampeonatos.Partida" Role="Partida" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Competidor" Role="Competidor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competidor">
+        <PropertyRef Name="PartidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorCompetidor">
+    <End Type="GerenciadorCampeonatos.Jogador" Role="Jogador" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Competidor" Role="Competidor" Multiplicity="1" />
+  </Association>
+  <Association Name="CampeonatoPontuacao">
+    <End Type="GerenciadorCampeonatos.Campeonato" Role="Campeonato" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Pontuacao" Role="Pontuacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campeonato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pontuacao">
+        <PropertyRef Name="CampeonatoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PontuacaoResultado">
+    <End Type="GerenciadorCampeonatos.Pontuacao" Role="Pontuacao" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Resultado" Role="Resultado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pontuacao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resultado">
+        <PropertyRef Name="PontuacaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompetidorResultado">
+    <End Type="GerenciadorCampeonatos.Competidor" Role="Competidor" Multiplicity="1" />
+    <End Type="GerenciadorCampeonatos.Resultado" Role="Resultado" Multiplicity="0..1" />
+  </Association>
+</Schema>

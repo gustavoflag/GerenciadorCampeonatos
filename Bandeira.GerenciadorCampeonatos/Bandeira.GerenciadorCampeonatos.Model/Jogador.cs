@@ -14,8 +14,16 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
     public partial class Jogador
     {
+        public Jogador()
+        {
+            this.JogadorCampeonato = new HashSet<JogadorCampeonato>();
+        }
+    
         public int Id { get; set; }
+        public int CampeonatoId { get; set; }
+        public string Nome { get; set; }
     
         public virtual Competidor Competidor { get; set; }
+        public virtual ICollection<JogadorCampeonato> JogadorCampeonato { get; set; }
     }
 }

@@ -12,18 +12,12 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Rodada
+    public partial class JogadorCampeonato
     {
-        public Rodada()
-        {
-            this.Partidas = new HashSet<Partida>();
-        }
-    
         public int Id { get; set; }
         public int CampeonatoId { get; set; }
-        public int Numero { get; set; }
     
         public virtual Campeonato Campeonato { get; set; }
-        public virtual ICollection<Partida> Partidas { get; set; }
+        public virtual Jogador Jogadores { get; set; }
     }
 }

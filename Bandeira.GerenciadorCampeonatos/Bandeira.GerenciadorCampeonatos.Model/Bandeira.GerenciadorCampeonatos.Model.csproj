@@ -70,6 +70,9 @@
     <Compile Include="Jogador.cs">
       <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Local.cs">
+      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Partida.cs">
       <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
     </Compile>
