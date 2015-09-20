@@ -117,7 +117,7 @@
           <NavigationProperty Name="Competidor" Relationship="GerenciadorCampeonatos.JogadorCompetidor" FromRole="Jogador" ToRole="Competidor" />
           <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
           <Property Type="String" Name="Nome" Nullable="false" />
-          <NavigationProperty Name="JogadorCampeonato" Relationship="GerenciadorCampeonatos.JogadorCampeonatoJogador" FromRole="Jogador" ToRole="JogadorCampeonato" />
+          <NavigationProperty Name="Campeonatos" Relationship="GerenciadorCampeonatos.JogadorCampeonatoJogador" FromRole="Jogador" ToRole="JogadorCampeonato" />
         </EntityType>
         <EntityType Name="Pontuacao">
           <Key>
@@ -252,7 +252,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Campeonato" Relationship="GerenciadorCampeonatos.CampeonatoJogadorCampeonato" FromRole="JogadorCampeonato" ToRole="Campeonato" />
           <Property Type="Int32" Name="CampeonatoId" Nullable="false" />
-          <NavigationProperty Name="Jogadores" Relationship="GerenciadorCampeonatos.JogadorCampeonatoJogador" FromRole="JogadorCampeonato" ToRole="Jogador" />
+          <NavigationProperty Name="Jogador" Relationship="GerenciadorCampeonatos.JogadorCampeonatoJogador" FromRole="JogadorCampeonato" ToRole="Jogador" />
         </EntityType>
         <Association Name="CampeonatoJogadorCampeonato">
           <End Type="GerenciadorCampeonatos.Campeonato" Role="Campeonato" Multiplicity="1" />
