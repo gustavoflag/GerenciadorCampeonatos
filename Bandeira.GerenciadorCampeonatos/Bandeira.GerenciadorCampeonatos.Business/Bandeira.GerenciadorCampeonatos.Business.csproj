@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseProcess.cs" />
     <Compile Include="CampeonatoProcess.cs" />
+    <Compile Include="IProcess.cs" />
+    <Compile Include="JogadorProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

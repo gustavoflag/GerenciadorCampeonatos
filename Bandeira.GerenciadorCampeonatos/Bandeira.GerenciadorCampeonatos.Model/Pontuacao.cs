@@ -16,7 +16,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     {
         public Pontuacao()
         {
-            this.Resultados = new HashSet<Resultado>();
+            this.Resultados = new HashSet<ResultadoPartida>();
         }
     
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public bool Ativo { get; set; }
     
         public virtual Campeonato Campeonato { get; set; }
-        public virtual ICollection<Resultado> Resultados { get; set; }
+        public virtual ICollection<ResultadoPartida> Resultados { get; set; }
     }
 }

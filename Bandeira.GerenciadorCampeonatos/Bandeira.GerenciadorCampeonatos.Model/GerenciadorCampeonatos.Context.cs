@@ -31,10 +31,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public DbSet<Competidor> Competidores { get; set; }
         public DbSet<Jogador> Jogadores { get; set; }
         public DbSet<Pontuacao> Pontuacoes { get; set; }
-        public DbSet<Resultado> Resultados { get; set; }
+        public DbSet<ResultadoPartida> Resultados { get; set; }
         public DbSet<Local> Locais { get; set; }
         public DbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
-
-        
     }
 }

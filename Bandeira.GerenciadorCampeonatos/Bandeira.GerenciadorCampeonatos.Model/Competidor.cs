@@ -19,6 +19,6 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
         public virtual Partida Partida { get; set; }
         public virtual Jogador Jogador { get; set; }
-        public virtual Resultado Resultado { get; set; }
+        public virtual ResultadoPartida Resultado { get; set; }
     }
 }

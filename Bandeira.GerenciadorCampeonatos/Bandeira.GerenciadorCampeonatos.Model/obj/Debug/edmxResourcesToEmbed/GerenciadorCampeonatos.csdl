@@ -7,7 +7,7 @@
     <EntitySet Name="Competidores" EntityType="GerenciadorCampeonatos.Competidor" />
     <EntitySet Name="Jogadores" EntityType="GerenciadorCampeonatos.Jogador" />
     <EntitySet Name="Pontuacoes" EntityType="GerenciadorCampeonatos.Pontuacao" />
-    <EntitySet Name="Resultados" EntityType="GerenciadorCampeonatos.Resultado" />
+    <EntitySet Name="Resultados" EntityType="GerenciadorCampeonatos.ResultadoPartida" />
     <AssociationSet Name="CampeonatoRodada" Association="GerenciadorCampeonatos.CampeonatoRodada">
       <End Role="Campeonato" EntitySet="Campeonatos" />
       <End Role="Rodada" EntitySet="Rodadas" />
@@ -120,7 +120,7 @@
     <Property Type="DateTime" Name="DtCadastro" Nullable="false" />
     <Property Type="Boolean" Name="Ativo" Nullable="false" />
   </EntityType>
-  <EntityType Name="Resultado">
+  <EntityType Name="ResultadoPartida">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -186,7 +186,7 @@
   </Association>
   <Association Name="PontuacaoResultado">
     <End Type="GerenciadorCampeonatos.Pontuacao" Role="Pontuacao" Multiplicity="1" />
-    <End Type="GerenciadorCampeonatos.Resultado" Role="Resultado" Multiplicity="*" />
+    <End Type="GerenciadorCampeonatos.ResultadoPartida" Role="Resultado" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pontuacao">
         <PropertyRef Name="Id" />
@@ -198,11 +198,11 @@
   </Association>
   <Association Name="CompetidorResultado">
     <End Type="GerenciadorCampeonatos.Competidor" Role="Competidor" Multiplicity="1" />
-    <End Type="GerenciadorCampeonatos.Resultado" Role="Resultado" Multiplicity="0..1" />
+    <End Type="GerenciadorCampeonatos.ResultadoPartida" Role="Resultado" Multiplicity="0..1" />
   </Association>
   <Association Name="PartidaResultado">
     <End Type="GerenciadorCampeonatos.Partida" Role="Partida" Multiplicity="1" />
-    <End Type="GerenciadorCampeonatos.Resultado" Role="Resultado" Multiplicity="*" />
+    <End Type="GerenciadorCampeonatos.ResultadoPartida" Role="Resultado" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Partida">
         <PropertyRef Name="Id" />

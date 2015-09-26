@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a66e17c140aa4ecf9d65e6e6f3ef5c8e" Name="Diagram1" ZoomLevel="83" >
+      <Diagram DiagramId="a66e17c140aa4ecf9d65e6e6f3ef5c8e" Name="Diagram1" ZoomLevel="72" >
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Campeonato" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Rodada" Width="1.5" PointX="5.875" PointY="3.75" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Partida" Width="1.5" PointX="6" PointY="6.5" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Competidor" Width="1.5" PointX="5.25" PointY="9.25" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Jogador" Width="1.5" PointX="1.375" PointY="9.5" />
         <EntityTypeShape EntityType="GerenciadorCampeonatos.Pontuacao" Width="1.5" PointX="9.5" PointY="3.25" />
-        <EntityTypeShape EntityType="GerenciadorCampeonatos.Resultado" Width="1.5" PointX="9.125" PointY="7.625" />
+        <EntityTypeShape EntityType="GerenciadorCampeonatos.ResultadoPartida" Width="1.75" PointX="9.125" PointY="7.625" />
         <AssociationConnector Association="GerenciadorCampeonatos.CampeonatoRodada" />
         <AssociationConnector Association="GerenciadorCampeonatos.RodadaPartida" />
         <AssociationConnector Association="GerenciadorCampeonatos.PartidaCompetidor" />
