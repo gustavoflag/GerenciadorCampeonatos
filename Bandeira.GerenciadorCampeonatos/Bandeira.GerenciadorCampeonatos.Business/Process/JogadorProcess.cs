@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bandeira.GerenciadorCampeonatos.Business
+namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    public class JogadorProcess : BaseProcess<Jogador>
+    internal class JogadorProcess : BaseProcess<Jogador>
     {
         public JogadorProcess(GerenciadorCampeonatosContainer container)
             :base(container)
@@ -41,6 +41,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             container.Jogadores.Remove(obj);
         }
 
+        protected override void Update(Jogador objBanco, Jogador obj)
+        {
+            objBanco.Nome = obj.Nome;
+        }
+
         protected override Resultado ValidateInsert(Jogador obj)
         {
             Resultado resultado = new Resultado();
@@ -66,7 +71,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return new Resultado();
         }
 
-        public Resultado AssociaCampeonato(Jogador jogador, Campeonato campeonato)
+        internal Resultado AssociaCampeonato(Jogador jogador, Campeonato campeonato)
         {
             Resultado resultado = new Resultado();
 
@@ -91,7 +96,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             
         }
 
-        public Resultado DesassociaCampeonato(JogadorCampeonato jogadorCampeonato)
+        internal Resultado DesassociaCampeonato(JogadorCampeonato jogadorCampeonato)
         {
             Resultado resultado = new Resultado();
 

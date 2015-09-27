@@ -5,10 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bandeira.GerenciadorCampeonatos.Business
+namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    public class RodadaProcess : BaseProcess<Rodada>
+    internal class RodadaProcess : BaseProcess<Rodada>
     {
+        public RodadaProcess(GerenciadorCampeonatosContainer container)
+            :base(container)
+        {
+            this.container = container;
+        }
+
+        public RodadaProcess()
+            : base(new GerenciadorCampeonatosContainer())
+        {
+
+        }
+
         protected override Rodada SelectByUnique(Rodada obj)
         {
             return Select().Where(r => r.Id == obj.Id).FirstOrDefault();
@@ -27,6 +39,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         protected override void Delete(Rodada obj)
         {
             container.Rodadas.Remove(obj);
+        }
+
+        protected override void Update(Rodada objBanco, Rodada obj)
+        {
+            objBanco.Numero = obj.Numero;
         }
 
         protected override Resultado ValidateInsert(Rodada obj)

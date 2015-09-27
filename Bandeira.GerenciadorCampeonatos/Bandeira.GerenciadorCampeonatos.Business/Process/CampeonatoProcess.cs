@@ -7,9 +7,9 @@ using System.Data.Entity;
 
 using Bandeira.GerenciadorCampeonatos.Model;
 
-namespace Bandeira.GerenciadorCampeonatos.Business
+namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    public class CampeonatoProcess : BaseProcess<Campeonato>
+    internal class CampeonatoProcess : BaseProcess<Campeonato>
     {
         public CampeonatoProcess(GerenciadorCampeonatosContainer container)
             :base(container)
@@ -36,6 +36,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         protected override void Insert(Campeonato obj)
         {
             container.Campeonatos.Add(obj);
+        }
+
+        protected override void Update(Campeonato objBanco, Campeonato obj)
+        {
+            objBanco.Nome = obj.Nome;
         }
 
         protected override void Delete(Campeonato obj)

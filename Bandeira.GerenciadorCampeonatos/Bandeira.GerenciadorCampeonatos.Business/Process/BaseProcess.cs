@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bandeira.GerenciadorCampeonatos.Business
+namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    public abstract class BaseProcess<T> : BaseProcess, IProcess<T> //where T : EntityObject
+    internal abstract class BaseProcess<T> : BaseProcess //where T : EntityObject
     {
         public BaseProcess(GerenciadorCampeonatosContainer container)
             : base(container)
         {
         }
 
-        public virtual Resultado Incluir(T obj)
+        internal virtual Resultado Incluir(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -37,7 +37,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return resultado;
         }
 
-        public virtual Resultado Alterar(T obj)
+        internal virtual Resultado Alterar(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -63,7 +63,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return resultado;
         }
 
-        public virtual Resultado Excluir(T obj)
+        internal virtual Resultado Excluir(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -89,26 +89,23 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return resultado;
         }
 
-        public virtual T Consultar(T obj)
+        internal virtual T Consultar(T obj)
         {
             return SelectByUnique(obj);
         }
 
-        public virtual IList<T> Listar()
+        internal virtual IList<T> Listar()
         {
             return Select().ToList();
         }
 
-        protected abstract T SelectByUnique(T obj);
-
         protected abstract IQueryable<T> Select();
+
+        protected abstract T SelectByUnique(T obj);
 
         protected abstract void Insert(T obj);
 
-        protected virtual void Update(T objBanco, T obj)
-        {
-            
-        }
+        protected abstract void Update(T objBanco, T obj);
 
         protected abstract void Delete(T obj);
 
@@ -119,7 +116,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         protected abstract Resultado ValidateDelete(T obj);
     }
 
-    public abstract class BaseProcess
+    internal abstract class BaseProcess
     {
         protected GerenciadorCampeonatosContainer container;
 

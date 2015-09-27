@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bandeira.GerenciadorCampeonatos.Model;
 
-namespace Bandeira.GerenciadorCampeonatos.Business
+namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
     public interface IProcess<T>
     {

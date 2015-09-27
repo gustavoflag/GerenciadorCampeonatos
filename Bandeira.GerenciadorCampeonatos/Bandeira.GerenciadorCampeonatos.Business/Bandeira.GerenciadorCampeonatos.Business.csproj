@@ -43,11 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseProcess.cs" />
-    <Compile Include="CampeonatoProcess.cs" />
-    <Compile Include="IProcess.cs" />
-    <Compile Include="JogadorProcess.cs" />
+    <Compile Include="Process\BaseProcess.cs" />
+    <Compile Include="Process\CampeonatoProcess.cs" />
+    <Compile Include="Process\CompetidorProcess.cs" />
+    <Compile Include="Process\IProcess.cs" />
+    <Compile Include="Process\JogadorProcess.cs" />
+    <Compile Include="Process\LocalProcess.cs" />
+    <Compile Include="Process\PartidaProcess.cs" />
+    <Compile Include="Process\PontuacaoProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Process\RodadaProcess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bandeira.GerenciadorCampeonatos.Model\Bandeira.GerenciadorCampeonatos.Model.csproj">
