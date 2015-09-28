@@ -13,15 +13,15 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         private IContainer container;
         private ICampeonatoFacade target;
 
-        private void SetContainer()
+        private IContainer GetContainer()
         {
-            container = new GerenciadorCampeonatosContainerMock();
+            return new GerenciadorCampeonatosContainerMock();
         }
 
         [TestMethod]
         public void CriarCampeonatoTest()
         {
-            SetContainer();
+            container = GetContainer();
             target = new CampeonatoFacade(container);
 
             Campeonato campeonato = new Campeonato();
@@ -31,7 +31,23 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
 
             Assert.AreEqual(1, container.Campeonatos.Count());
             Assert.AreEqual("Campeonato Teste", container.Campeonatos.FirstOrDefault().Nome);
+        }
 
+        [TestMethod]
+        public void CriarRodadaTest()
+        {
+            container = GetContainer();
+            target = new CampeonatoFacade(container);
+
+            Rodada rodada = new Rodada();
+            rodada.CampeonatoId = 4;
+            rodada.Numero = 8;
+
+            target.CriarRodada(rodada);
+
+            Assert.AreEqual(1, container.Rodadas.Count());
+            Assert.AreEqual(4, container.Rodadas.FirstOrDefault().CampeonatoId);
+            Assert.AreEqual(8, container.Rodadas.FirstOrDefault().Numero);
         }
     }
 }
