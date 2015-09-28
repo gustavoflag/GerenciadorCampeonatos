@@ -52,6 +52,7 @@
     <Compile Include="Competidor.cs">
       <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extension.cs" />
     <Compile Include="GerenciadorCampeonatos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="IContainer.cs" />
     <Compile Include="Jogador.cs">
       <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
     </Compile>

@@ -11,7 +11,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
     internal class CampeonatoProcess : BaseProcess<Campeonato>
     {
-        public CampeonatoProcess(GerenciadorCampeonatosContainer container)
+        public CampeonatoProcess(IContainer container)
             :base(container)
         {
             this.container = container;

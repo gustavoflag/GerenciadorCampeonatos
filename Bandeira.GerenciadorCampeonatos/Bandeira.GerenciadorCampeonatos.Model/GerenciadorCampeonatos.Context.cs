@@ -25,14 +25,14 @@ namespace Bandeira.GerenciadorCampeonatos.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Campeonato> Campeonatos { get; set; }
-        public DbSet<Rodada> Rodadas { get; set; }
-        public DbSet<Partida> Partidas { get; set; }
-        public DbSet<Competidor> Competidores { get; set; }
-        public DbSet<Jogador> Jogadores { get; set; }
-        public DbSet<Pontuacao> Pontuacoes { get; set; }
-        public DbSet<ResultadoPartida> Resultados { get; set; }
-        public DbSet<Local> Locais { get; set; }
-        public DbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
+        public IDbSet<Campeonato> Campeonatos { get; set; }
+        public IDbSet<Rodada> Rodadas { get; set; }
+        public IDbSet<Partida> Partidas { get; set; }
+        public IDbSet<Competidor> Competidores { get; set; }
+        public IDbSet<Jogador> Jogadores { get; set; }
+        public IDbSet<Pontuacao> Pontuacoes { get; set; }
+        public IDbSet<ResultadoPartida> Resultados { get; set; }
+        public IDbSet<Local> Locais { get; set; }
+        public IDbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
     }
 }

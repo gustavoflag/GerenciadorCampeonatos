@@ -9,7 +9,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
     internal class LocalProcess : BaseProcess<Local>
     {
-        public LocalProcess(GerenciadorCampeonatosContainer container)
+        public LocalProcess(IContainer container)
             :base(container)
         {
             this.container = container;

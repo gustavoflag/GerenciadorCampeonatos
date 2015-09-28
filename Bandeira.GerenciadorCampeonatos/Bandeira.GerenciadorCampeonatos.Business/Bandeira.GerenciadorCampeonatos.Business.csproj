@@ -43,9 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CampeonatoFacade.cs" />
+    <Compile Include="ICampeonatoFacade.cs" />
+    <Compile Include="PartidaFacade.cs" />
     <Compile Include="Process\BaseProcess.cs" />
     <Compile Include="Process\CampeonatoProcess.cs" />
     <Compile Include="Process\CompetidorProcess.cs" />
+    <Compile Include="Process\IPartidaFacade.cs" />
     <Compile Include="Process\IProcess.cs" />
     <Compile Include="Process\JogadorProcess.cs" />
     <Compile Include="Process\LocalProcess.cs" />

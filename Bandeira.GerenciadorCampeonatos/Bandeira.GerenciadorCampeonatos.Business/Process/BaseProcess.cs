@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    internal abstract class BaseProcess<T> : BaseProcess //where T : EntityObject
+    internal abstract class BaseProcess<T> : BaseProcess, IProcess<T> //where T : EntityObject
     {
-        public BaseProcess(GerenciadorCampeonatosContainer container)
+        public BaseProcess(IContainer container)
             : base(container)
         {
         }
 
-        internal virtual Resultado Incluir(T obj)
+        public virtual Resultado Incluir(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -37,7 +37,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             return resultado;
         }
 
-        internal virtual Resultado Alterar(T obj)
+        public virtual Resultado Alterar(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -63,7 +63,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             return resultado;
         }
 
-        internal virtual Resultado Excluir(T obj)
+        public virtual Resultado Excluir(T obj)
         {
             Resultado resultado = new Resultado();
 
@@ -89,12 +89,12 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             return resultado;
         }
 
-        internal virtual T Consultar(T obj)
+        public virtual T Consultar(T obj)
         {
             return SelectByUnique(obj);
         }
 
-        internal virtual IList<T> Listar()
+        public virtual IList<T> Listar()
         {
             return Select().ToList();
         }
@@ -118,15 +118,15 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
     internal abstract class BaseProcess
     {
-        protected GerenciadorCampeonatosContainer container;
+        protected IContainer container;
 
         public BaseProcess()
         {
         }
 
-        public BaseProcess(GerenciadorCampeonatosContainer _container)
+        public BaseProcess(IContainer container)
         {
-            container = _container;
+            this.container = container;
         }
     }
 
