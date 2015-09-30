@@ -30,13 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -46,74 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Campeonato.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Competidor.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Campeonato.cs" />
+    <Compile Include="Competidor.cs" />
+    <Compile Include="EntityBase.cs" />
     <Compile Include="Extension.cs" />
-    <Compile Include="GerenciadorCampeonatos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GerenciadorCampeonatos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GerenciadorCampeonatos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GerenciadorCampeonatos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="GerenciadorCampeonatosContext.cs" />
     <Compile Include="IContainer.cs" />
-    <Compile Include="Jogador.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JogadorCampeonato.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Local.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Partida.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pontuacao.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Jogador.cs" />
+    <Compile Include="JogadorCampeonato.cs" />
+    <Compile Include="Local.cs" />
+    <Compile Include="Partida.cs" />
+    <Compile Include="Pontuacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultado.cs" />
-    <Compile Include="ResultadoPartida.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodada.cs">
-      <DependentUpon>GerenciadorCampeonatos.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="GerenciadorCampeonatos.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GerenciadorCampeonatos.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="ResultadoPartida.cs" />
+    <Compile Include="Rodada.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="GerenciadorCampeonatos.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
-      <LastGenOutput>GerenciadorCampeonatos.Context.cs</LastGenOutput>
-    </None>
-    <None Include="GerenciadorCampeonatos.edmx.diagram">
-      <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
-    </None>
-    <None Include="GerenciadorCampeonatos.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GerenciadorCampeonatos.edmx</DependentUpon>
-      <LastGenOutput>GerenciadorCampeonatos.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

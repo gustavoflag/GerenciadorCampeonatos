@@ -1,15 +1,11 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Objects.DataClasses;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    internal abstract class BaseProcess<T> : BaseProcess, IProcess<T> //where T : EntityObject
+    internal abstract class BaseProcess<T> : BaseProcess, IProcess<T> where T : EntityBase
     {
         public BaseProcess(IContainer container)
             : base(container)

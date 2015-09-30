@@ -7,3 +7,6 @@ C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeir
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\obj\Debug\Bandeira.GerenciadorCampeonatos.Business.csprojResolveAssemblyReference.cache
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\obj\Debug\Bandeira.GerenciadorCampeonatos.Business.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\obj\Debug\Bandeira.GerenciadorCampeonatos.Business.pdb
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\Bandeira.GerenciadorCampeonatos.Business.dll.config
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\EntityFramework.SqlServer.xml
