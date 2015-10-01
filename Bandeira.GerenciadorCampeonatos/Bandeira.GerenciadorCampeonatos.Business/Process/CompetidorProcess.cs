@@ -28,7 +28,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Competidor SelectByUnique(Competidor obj)
         {
-            return Select().Where(c => c.Id == obj.Id).FirstOrDefault();
+            return Select().Where(c => c.CompetidorId == obj.CompetidorId).FirstOrDefault();
         }
 
         protected override void Insert(Competidor obj)
@@ -50,7 +50,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Competidores.Any(c => c.PartidaId == obj.PartidaId && c.Jogador.Id == obj.Jogador.Id))
+            if (container.Competidores.Any(c => c.PartidaId == obj.PartidaId && c.Jogador.JogadorId == obj.Jogador.JogadorId))
             {
                 resultado.AddMensagemErro("Esse jogador já foi associado a essa partida.");
             }

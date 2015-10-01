@@ -53,7 +53,7 @@
     <Compile Include="Competidor.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Extension.cs" />
-    <Compile Include="GerenciadorCampeonatosContext.cs" />
+    <Compile Include="GerenciadorCampeonatosContainer.cs" />
     <Compile Include="IContainer.cs" />
     <Compile Include="Jogador.cs" />
     <Compile Include="JogadorCampeonato.cs" />

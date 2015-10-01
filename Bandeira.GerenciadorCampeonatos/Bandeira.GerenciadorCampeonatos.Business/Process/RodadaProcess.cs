@@ -23,7 +23,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Rodada SelectByUnique(Rodada obj)
         {
-            return Select().Where(r => r.Id == obj.Id).FirstOrDefault();
+            return Select().Where(r => r.RodadaId == obj.RodadaId).FirstOrDefault();
         }
 
         protected override IQueryable<Rodada> Select()
@@ -50,7 +50,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Rodadas.Any(r => r.Numero == obj.Numero && r.CampeonatoId == obj.Id))
+            if (container.Rodadas.Any(r => r.Numero == obj.Numero && r.CampeonatoId == obj.CampeonatoId))
                 resultado.AddMensagemErro("Já existe uma rodada com o mesmo número nesse campeonato");
 
             return resultado;
@@ -60,7 +60,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Rodadas.Any(r => r.Numero == obj.Numero && r.CampeonatoId == obj.Id && r.Id != obj.Id))
+            if (container.Rodadas.Any(r => r.Numero == obj.Numero && r.CampeonatoId == obj.CampeonatoId && r.RodadaId != obj.RodadaId))
                 resultado.AddMensagemErro("Já existe outra rodada com o mesmo número nesse campeonato");
 
             return resultado;

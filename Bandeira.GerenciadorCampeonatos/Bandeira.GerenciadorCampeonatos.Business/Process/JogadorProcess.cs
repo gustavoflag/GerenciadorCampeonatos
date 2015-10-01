@@ -60,7 +60,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Jogadores.Any(j => j.Nome == obj.Nome && j.Id != obj.Id))
+            if (container.Jogadores.Any(j => j.Nome == obj.Nome && j.JogadorId != obj.JogadorId))
                 resultado.AddMensagemErro("Já existe outro jogador com esse nome.");
 
             return resultado;
@@ -102,7 +102,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
             try
             {
-                jogadorCampeonato = container.JogadorCampeonatos.Where(jc => jc.Id == jogadorCampeonato.Id).FirstOrDefault();
+                jogadorCampeonato = container.JogadorCampeonatos.Where(jc => jc.JogadorCampeonatoId == jogadorCampeonato.JogadorCampeonatoId).FirstOrDefault();
 
                 container.JogadorCampeonatos.Remove(jogadorCampeonato);
 

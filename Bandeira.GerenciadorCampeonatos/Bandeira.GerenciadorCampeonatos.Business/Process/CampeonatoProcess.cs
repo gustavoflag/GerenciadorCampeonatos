@@ -25,7 +25,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Campeonato SelectByUnique(Campeonato obj)
         {
-            return container.Campeonatos.Where(c => c.Id == obj.Id).FirstOrDefault();
+            return container.Campeonatos.Where(c => c.CampeonatoId == obj.CampeonatoId).FirstOrDefault();
         }
 
         protected override IQueryable<Campeonato> Select()
@@ -64,7 +64,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Campeonatos.Any(c => c.Nome == obj.Nome && c.Id != obj.Id))
+            if (container.Campeonatos.Any(c => c.Nome == obj.Nome && c.CampeonatoId != obj.CampeonatoId))
             {
                 resultado.AddMensagemErro("Já existe outro campeonato com esse nome");
             }

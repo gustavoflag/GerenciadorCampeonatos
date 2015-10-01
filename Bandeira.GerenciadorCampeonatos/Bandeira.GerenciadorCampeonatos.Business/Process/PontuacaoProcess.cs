@@ -28,7 +28,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Pontuacao SelectByUnique(Pontuacao obj)
         {
-            return Select().Where(p => p.Id == obj.Id).FirstOrDefault();
+            return Select().Where(p => p.PontuacaoId == obj.PontuacaoId).FirstOrDefault();
         }
 
         protected override void Insert(Pontuacao obj)

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
@@ -8,11 +10,15 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         {
             this.Campeonatos = new HashSet<JogadorCampeonato>();
         }
-    
-        public int CampeonatoId { get; set; }
+
+        [Key]
+        public int JogadorId { get; set; }
+
         public string Nome { get; set; }
-    
-        public virtual Competidor Competidor { get; set; }
+
+        //[ForeignKey("CompetidorId")]
+        //public virtual Competidor Competidor { get; set; }
+
         public virtual ICollection<JogadorCampeonato> Campeonatos { get; set; }
     }
 }

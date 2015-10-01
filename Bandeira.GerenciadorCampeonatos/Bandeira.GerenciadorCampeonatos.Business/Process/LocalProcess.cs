@@ -28,7 +28,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Local SelectByUnique(Local obj)
         {
-            return Select().Where(l => l.Id == obj.Id).FirstOrDefault();
+            return Select().Where(l => l.LocalId == obj.LocalId).FirstOrDefault();
         }
 
         protected override void Insert(Local obj)
@@ -64,7 +64,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Locais.Any(l => l.Nome == obj.Nome && l.Id != obj.Id))
+            if (container.Locais.Any(l => l.Nome == obj.Nome && l.LocalId != obj.LocalId))
                 resultado.AddMensagemErro("Já existe outra localização com o mesmo nome");
 
             return resultado;

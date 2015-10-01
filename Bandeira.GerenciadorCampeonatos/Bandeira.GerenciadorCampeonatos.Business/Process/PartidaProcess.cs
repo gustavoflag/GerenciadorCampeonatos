@@ -23,7 +23,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Partida SelectByUnique(Partida obj)
         {
-            return Select().Where(p => p.Id == obj.Id).FirstOrDefault();
+            return Select().Where(p => p.PartidaId == obj.PartidaId).FirstOrDefault();
         }
 
         protected override IQueryable<Partida> Select()
@@ -93,7 +93,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
             try
             {
-                resultadoPartida = container.Resultados.Where(rp => rp.Id == resultadoPartida.Id).FirstOrDefault();
+                resultadoPartida = container.Resultados.Where(rp => rp.ResultadoPartidaId == resultadoPartida.ResultadoPartidaId).FirstOrDefault();
 
                 container.Resultados.Remove(resultadoPartida);
 

@@ -37,18 +37,18 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         public void AlterarCampeonatoTest()
         {
             container = GetContainer();
-            container.Campeonatos.Add(new Campeonato() { Id = 1, Nome = "Campeonato 1" });
+            container.Campeonatos.Add(new Campeonato() { CampeonatoId = 1, Nome = "Campeonato 1" });
 
             target = new CampeonatoFacade(container);
 
             Campeonato campeonato = new Campeonato();
-            campeonato.Id = 1;
+            campeonato.CampeonatoId = 1;
             campeonato.Nome = "Campeonato 2";
 
             Resultado retorno = target.AlterarCampeonato(campeonato);
 
             Assert.AreEqual(true, retorno.Sucesso);
-            Assert.AreEqual("Campeonato 2", container.Campeonatos.Where(c => c.Id == 1).FirstOrDefault().Nome);
+            Assert.AreEqual("Campeonato 2", container.Campeonatos.Where(c => c.CampeonatoId == 1).FirstOrDefault().Nome);
         }
 
         [TestMethod]
@@ -67,6 +67,21 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
             Assert.AreEqual(1, container.Rodadas.Count());
             Assert.AreEqual(4, container.Rodadas.FirstOrDefault().CampeonatoId);
             Assert.AreEqual(8, container.Rodadas.FirstOrDefault().Numero);
+        }
+
+        [TestMethod]
+        public void CriarCampeonatoRealTest()
+        {
+            //container = GetContainer();
+            target = new CampeonatoFacade();
+
+            Campeonato campeonato = new Campeonato();
+            campeonato.Nome = "Campeonato Teste";
+
+            Resultado retorno = target.CriarCampeonato(campeonato);
+
+            Assert.AreEqual(1, container.Campeonatos.Count());
+            Assert.AreEqual("Campeonato Teste", container.Campeonatos.FirstOrDefault().Nome);
         }
     }
 }

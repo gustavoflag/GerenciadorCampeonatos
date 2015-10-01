@@ -6,8 +6,4 @@ using System.Threading.Tasks;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
-    public partial class GerenciadorCampeonatosContainer : IContainer 
-    {
-        
-    }
 }
