@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {    
-    public partial class Campeonato : EntityBase
+    [Table("Campeonato")]
+    public partial class Campeonato
     {
         public Campeonato()
         {

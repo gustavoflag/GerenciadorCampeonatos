@@ -11,6 +11,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
+
             //throw new UnintentionalCodeFirstException();
         }
 
@@ -23,6 +25,5 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public IDbSet<ResultadoPartida> Resultados { get; set; }
         public IDbSet<Local> Locais { get; set; }
         public IDbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
-        public IDbSet<EntityBase> EntityBaseSet { get; set; }
     }
 }

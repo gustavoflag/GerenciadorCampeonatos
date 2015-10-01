@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
-    public partial class Pontuacao : EntityBase
+    [Table("Pontuacao")]
+    public partial class Pontuacao
     {
         public Pontuacao()
         {

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
-{    
-    public partial class Local : EntityBase
+{
+    [Table("Local")]
+    public partial class Local
     {
         public Local()
         {

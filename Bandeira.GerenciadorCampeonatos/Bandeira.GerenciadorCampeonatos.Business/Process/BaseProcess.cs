@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
-    internal abstract class BaseProcess<T> : BaseProcess, IProcess<T> where T : EntityBase
+    internal abstract class BaseProcess<T> : BaseProcess, IProcess<T> //where T : EntityBase
     {
         public BaseProcess(IContainer container)
             : base(container)

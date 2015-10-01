@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
-{    
-    public partial class Rodada : EntityBase
+{
+    [Table("Rodada")]
+    public partial class Rodada
     {
         public Rodada()
         {

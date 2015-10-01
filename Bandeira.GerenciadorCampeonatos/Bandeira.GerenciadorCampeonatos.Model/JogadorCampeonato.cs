@@ -2,7 +2,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
-    public partial class JogadorCampeonato : EntityBase
+    [Table("JogadorCampeonato")]
+    public partial class JogadorCampeonato
     {
         [Key]
         public int JogadorCampeonatoId { get; set; }

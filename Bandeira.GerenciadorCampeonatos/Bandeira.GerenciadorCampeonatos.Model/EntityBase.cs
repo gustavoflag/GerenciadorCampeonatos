@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
-    public abstract partial class EntityBase : ICloneable
+    /*public abstract partial class EntityBase : ICloneable
     {
         [Key]
         public int IdBase { get; set; }
@@ -13,5 +13,5 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         {
             return this.MemberwiseClone();
         }
-    }
+    }*/
 }

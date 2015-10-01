@@ -72,7 +72,7 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         [TestMethod]
         public void CriarCampeonatoRealTest()
         {
-            //container = GetContainer();
+            container = GetContainer();
             target = new CampeonatoFacade();
 
             Campeonato campeonato = new Campeonato();
