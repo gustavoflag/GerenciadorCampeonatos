@@ -1,5 +1,6 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Business.Process;
 using Bandeira.GerenciadorCampeonatos.Model;
+using System;
 using System.Collections.Generic;
 
 namespace Bandeira.GerenciadorCampeonatos.Business
@@ -58,6 +59,15 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return resultado;
         }
 
+        public Resultado ExcluirCampeonato(Campeonato campeonato)
+        {
+            Resultado resultado = campeonatoProcess.Excluir(campeonato);
+
+            if (resultado.Sucesso)
+                container.SaveChanges();
+
+            return resultado;
+        }
 
         //Rodada
         public Resultado CriarRodada(Rodada rodada)
@@ -81,12 +91,39 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         }
 
         //Pontuação
+        private Resultado InativaPontuacoesAtivasPreExistentes(Pontuacao pontuacao)
+        {
+            Resultado resultado = new Resultado();
+
+            IList<Pontuacao> pontuacaoJaExistente = pontuacaoProcess.Consultar(pontuacao);
+
+            if (pontuacaoJaExistente != null)
+            {
+                foreach (Pontuacao pontuacaoBase in pontuacaoJaExistente)
+                {
+                    pontuacaoBase.Ativo = false;
+                    resultado.Merge(pontuacaoProcess.Alterar(pontuacaoBase));
+
+                    if (!resultado.Sucesso)
+                        break;
+                }
+            }
+
+            return resultado;
+        }
+
         public Resultado CriarPontuacao(Pontuacao pontuacao)
         {
-            Resultado resultado = pontuacaoProcess.Incluir(pontuacao);
+            Resultado resultado = InativaPontuacoesAtivasPreExistentes(pontuacao);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+            {
+                pontuacao.DtCadastro = DateTime.Now;
+                resultado.Merge(pontuacaoProcess.Incluir(pontuacao));
+
+                if (resultado.Sucesso)
+                    container.SaveChanges();
+            }
 
             return resultado;
         }
@@ -97,7 +134,13 @@ namespace Bandeira.GerenciadorCampeonatos.Business
 
             foreach (Pontuacao pontuacao in pontuacoes)
             {
-                resultado.Merge(pontuacaoProcess.Incluir(pontuacao));
+                resultado.Merge(InativaPontuacoesAtivasPreExistentes(pontuacao));
+
+                if (resultado.Sucesso)
+                {
+                    pontuacao.DtCadastro = DateTime.Now;
+                    resultado.Merge(pontuacaoProcess.Incluir(pontuacao));
+                }
                 
                 if (!resultado.Sucesso)
                     break;

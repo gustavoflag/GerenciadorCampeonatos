@@ -14,6 +14,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JogadorId { get; set; }
 
         [UniqueKey]

@@ -6,6 +6,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     public partial class Competidor
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CompetidorId { get; set; }
 
         public int PartidaId { get; set; }

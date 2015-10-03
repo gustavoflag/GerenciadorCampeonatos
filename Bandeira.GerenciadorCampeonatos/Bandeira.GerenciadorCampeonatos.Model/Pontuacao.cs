@@ -13,6 +13,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PontuacaoId { get; set; }
     
         public int CampeonatoId { get; set; }

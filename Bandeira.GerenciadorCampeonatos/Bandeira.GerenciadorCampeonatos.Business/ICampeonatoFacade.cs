@@ -14,6 +14,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
 
         Resultado AlterarCampeonato(Campeonato campeonato);
 
+        Resultado ExcluirCampeonato(Campeonato campeonato);
 
         //Rodada
         Resultado CriarRodada(Rodada rodada);

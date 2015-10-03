@@ -14,6 +14,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PartidaId { get; set; }
 
         public int RodadaId { get; set; }

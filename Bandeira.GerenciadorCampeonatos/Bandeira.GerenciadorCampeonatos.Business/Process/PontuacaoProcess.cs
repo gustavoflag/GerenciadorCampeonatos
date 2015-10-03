@@ -21,6 +21,13 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         }
 
+        internal IList<Pontuacao> Consultar(Pontuacao pontuacao)
+        {
+            return Select().Where(p => p.CampeonatoId == pontuacao.CampeonatoId
+                                        && p.Colocacao == pontuacao.Colocacao
+                                        && p.Ativo).ToList();
+        }
+
         protected override IQueryable<Pontuacao> Select()
         {
             return container.Pontuacoes;

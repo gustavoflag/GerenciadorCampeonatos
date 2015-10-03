@@ -52,7 +52,7 @@
     <Compile Include="Process\BaseProcess.cs" />
     <Compile Include="Process\CampeonatoProcess.cs" />
     <Compile Include="Process\CompetidorProcess.cs" />
-    <Compile Include="Process\IPartidaFacade.cs" />
+    <Compile Include="IPartidaFacade.cs" />
     <Compile Include="Process\IProcess.cs" />
     <Compile Include="Process\JogadorProcess.cs" />
     <Compile Include="Process\LocalProcess.cs" />
