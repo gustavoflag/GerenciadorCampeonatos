@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
@@ -12,6 +13,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();   
 
             //throw new UnintentionalCodeFirstException();
         }

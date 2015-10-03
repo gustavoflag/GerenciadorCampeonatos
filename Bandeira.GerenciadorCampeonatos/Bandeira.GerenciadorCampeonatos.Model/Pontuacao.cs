@@ -21,6 +21,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public System.DateTime DtCadastro { get; set; }
         public bool Ativo { get; set; }
 
+        [Required]
         [ForeignKey("CampeonatoId")]
         public virtual Campeonato Campeonato { get; set; }
         public virtual ICollection<ResultadoPartida> Resultados { get; set; }

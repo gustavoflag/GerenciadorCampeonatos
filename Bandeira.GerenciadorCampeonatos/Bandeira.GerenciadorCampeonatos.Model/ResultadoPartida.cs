@@ -14,11 +14,13 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [Key]
         public int ResultadoPartidaId { get; set; }
 
+        [Required]
         [ForeignKey("PontuacaoId")]
         public virtual Pontuacao Pontuacao { get; set; }
         
         public virtual Competidor Competidor { get; set; }
 
+        [Required]
         [ForeignKey("PartidaId")]
         public virtual Partida Partida { get; set; }
     }

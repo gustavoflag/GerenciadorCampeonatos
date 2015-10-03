@@ -11,9 +11,11 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public int CampeonatoId { get; set; }
         public int JogadorId { get; set; }
 
+        [Required]
         [ForeignKey("CampeonatoId")]
         public virtual Campeonato Campeonato { get; set; }
 
+        [Required]
         [ForeignKey("JogadorId")]
         public virtual Jogador Jogador { get; set; }
     }

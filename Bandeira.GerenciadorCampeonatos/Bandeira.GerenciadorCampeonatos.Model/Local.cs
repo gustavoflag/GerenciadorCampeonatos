@@ -1,3 +1,4 @@
+using Bandeira.GerenciadorCampeonatos.Model.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [Key]
         public int LocalId { get; set; }
 
+        [UniqueKey]
         public string Nome { get; set; }
         public DbGeography Localizacao { get; set; }
     

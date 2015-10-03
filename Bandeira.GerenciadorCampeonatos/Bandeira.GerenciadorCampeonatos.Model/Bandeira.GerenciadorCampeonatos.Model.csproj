@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAnnotations\UniqueKeyAttribute.cs" />
     <Compile Include="Campeonato.cs" />
     <Compile Include="Competidor.cs" />
     <Compile Include="EntityBase.cs" />

@@ -13,15 +13,20 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         private IContainer container;
         private ICampeonatoFacade target;
 
-        private IContainer GetContainer()
+        private IContainer GetFakeContainer()
         {
             return new GerenciadorCampeonatosContainerMock();
+        }
+
+        private IContainer GetRealContainer()
+        {
+            return new GerenciadorCampeonatosContainer();
         }
 
         [TestMethod]
         public void CriarCampeonatoTest()
         {
-            container = GetContainer();
+            container = GetFakeContainer();
             target = new CampeonatoFacade(container);
 
             Campeonato campeonato = new Campeonato();
@@ -36,7 +41,7 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         [TestMethod]
         public void AlterarCampeonatoTest()
         {
-            container = GetContainer();
+            container = GetFakeContainer();
             container.Campeonatos.Add(new Campeonato() { CampeonatoId = 1, Nome = "Campeonato 1" });
 
             target = new CampeonatoFacade(container);
@@ -54,7 +59,7 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         [TestMethod]
         public void CriarRodadaTest()
         {
-            container = GetContainer();
+            container = GetFakeContainer();
             target = new CampeonatoFacade(container);
 
             Rodada rodada = new Rodada();
@@ -72,8 +77,8 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
         [TestMethod]
         public void CriarCampeonatoRealTest()
         {
-            container = GetContainer();
-            target = new CampeonatoFacade();
+            container = GetRealContainer();
+            target = new CampeonatoFacade(container);
 
             Campeonato campeonato = new Campeonato();
             campeonato.Nome = "Campeonato Teste";

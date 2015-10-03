@@ -15,6 +15,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [ForeignKey("PartidaId")]
         public virtual Partida Partida { get; set; }
 
+        [Required]
         [ForeignKey("JogadorId")]
         public virtual Jogador Jogador { get; set; }
 

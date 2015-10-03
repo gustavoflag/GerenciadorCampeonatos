@@ -1,3 +1,4 @@
+using Bandeira.GerenciadorCampeonatos.Model.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,10 +16,11 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         }
     
         [Key]
-        public int CampeonatoId { get; set; } 
+        public int CampeonatoId { get; set; }
 
+        [UniqueKey]
         public string Nome { get; set; }
-    
+
         public virtual ICollection<Rodada> Rodadas { get; set; }
         public virtual ICollection<Pontuacao> Pontuacoes { get; set; }
         public virtual ICollection<JogadorCampeonato> Jogadores { get; set; }

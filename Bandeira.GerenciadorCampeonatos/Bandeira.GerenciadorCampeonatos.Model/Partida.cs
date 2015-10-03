@@ -19,11 +19,14 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public int RodadaId { get; set; }
         public int LocalId { get; set; }
 
+        [Required]
         [ForeignKey("RodadaId")]
         public virtual Rodada Rodada { get; set; }
+
         public virtual ICollection<Competidor> Competidores { get; set; }
         public virtual ICollection<ResultadoPartida> Resultados { get; set; }
 
+        [Required]
         [ForeignKey("LocalId")]
         public virtual Local Local { get; set; }
     }
