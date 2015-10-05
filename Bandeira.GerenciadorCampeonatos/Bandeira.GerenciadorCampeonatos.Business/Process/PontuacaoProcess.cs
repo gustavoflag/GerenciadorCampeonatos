@@ -19,14 +19,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             : base(new GerenciadorCampeonatosContainer())
         {
 
-        }
-
-        internal IList<Pontuacao> Consultar(Pontuacao pontuacao)
-        {
-            return Select().Where(p => p.CampeonatoId == pontuacao.CampeonatoId
-                                        && p.Colocacao == pontuacao.Colocacao
-                                        && p.Ativo).ToList();
-        }
+        }    
 
         protected override IQueryable<Pontuacao> Select()
         {
@@ -74,6 +67,23 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             Resultado resultado = new Resultado();
 
             return resultado;
+        }
+
+        internal IList<Pontuacao> Consultar(Pontuacao pontuacao)
+        {
+            return Select().Where(p => p.CampeonatoId == pontuacao.CampeonatoId
+                                        && p.Colocacao == pontuacao.Colocacao
+                                        && p.Ativo).ToList();
+        }
+
+        internal IList<Pontuacao> Listar(int campeonatoId, bool? ativo)
+        {
+            var lista = Select().Where(p => p.CampeonatoId == campeonatoId);
+
+            if (ativo.HasValue)
+                lista = lista.Where(p => p.Ativo == ativo);
+
+            return lista.OrderBy(p => p.Colocacao).ToList();
         }
     }
 }

@@ -1,4 +1,3 @@
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.csprojResolveAssemblyReference.cache
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll.config
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.pdb
@@ -12,5 +11,6 @@ C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeir
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.xml
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Moq.xml
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.csprojResolveAssemblyReference.cache
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.pdb

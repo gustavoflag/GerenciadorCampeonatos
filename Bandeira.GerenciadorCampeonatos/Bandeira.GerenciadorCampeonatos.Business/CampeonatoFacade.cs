@@ -90,6 +90,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return resultado;
         }
 
+        public IList<Rodada> ListarRodadas(int campeonatoId)
+        {
+            return rodadaProcess.Listar(campeonatoId);
+        }
+
         //Pontuação
         private Resultado InativaPontuacoesAtivasPreExistentes(Pontuacao pontuacao)
         {
@@ -150,6 +155,47 @@ namespace Bandeira.GerenciadorCampeonatos.Business
                 container.SaveChanges();
 
             return resultado;
+        }
+
+        public IList<Pontuacao> ListarAtivos(int campeonatoId)
+        {
+            return pontuacaoProcess.Listar(campeonatoId, true);
+        }
+
+        public IList<Pontuacao> ListarInativos(int campeonatoId)
+        {
+            return pontuacaoProcess.Listar(campeonatoId, false);
+        }
+
+        public IList<Pontuacao> ListarPontuacoes(int campeonatoId)
+        {
+            return pontuacaoProcess.Listar(campeonatoId, null);
+        }
+
+        //Jogador
+        public Resultado CriarJogador(Jogador jogador)
+        {
+            Resultado resultado = jogadorProcess.Incluir(jogador);
+
+            if (resultado.Sucesso)
+                container.SaveChanges();
+
+            return resultado;
+        }
+
+        public Resultado AlterarJogador(Jogador jogador)
+        {
+            Resultado resultado = jogadorProcess.Alterar(jogador);
+
+            if (resultado.Sucesso)
+                container.SaveChanges();
+
+            return resultado;
+        }
+
+        public IList<Jogador> ListarJogadores(int campeonatoId)
+        {
+            return jogadorProcess.Listar(campeonatoId);
         }
     }
 }

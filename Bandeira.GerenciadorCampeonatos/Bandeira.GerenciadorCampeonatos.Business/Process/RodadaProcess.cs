@@ -70,5 +70,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             return new Resultado();
         }
+
+        internal IList<Rodada> Listar(int campeonatoId)
+        {
+            return Select().Where(r => r.CampeonatoId == campeonatoId).ToList();
+        }
     }
 }
