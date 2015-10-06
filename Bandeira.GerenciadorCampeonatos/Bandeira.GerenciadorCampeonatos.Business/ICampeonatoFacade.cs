@@ -21,9 +21,24 @@ namespace Bandeira.GerenciadorCampeonatos.Business
 
         Resultado ApagarRodada(Rodada rodada);
 
+        IList<Rodada> ListarRodadas(int campeonatoId);
+
         //Pontuação
         Resultado CriarPontuacao(Pontuacao pontuacao);
 
         Resultado CriarPontuacoes(IList<Pontuacao> pontuacoes);
+
+        IList<Pontuacao> ListarAtivos(int campeonatoId);
+
+        IList<Pontuacao> ListarInativos(int campeonatoId);
+
+        IList<Pontuacao> ListarPontuacoes(int campeonatoId);
+
+        //Jogador
+        Resultado CriarJogador(Jogador jogador);
+
+        Resultado AlterarJogador(Jogador jogador);
+
+        IList<Jogador> ListarJogadores(int campeonatoId);
     }
 }
