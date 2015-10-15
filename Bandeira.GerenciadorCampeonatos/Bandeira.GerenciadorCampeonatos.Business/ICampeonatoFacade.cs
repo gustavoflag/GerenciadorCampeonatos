@@ -16,12 +16,16 @@ namespace Bandeira.GerenciadorCampeonatos.Business
 
         Resultado ExcluirCampeonato(Campeonato campeonato);
 
+        Campeonato ConsultarCampeonato(Campeonato campeonato);
+
         //Rodada
         Resultado CriarRodada(Rodada rodada);
 
         Resultado ApagarRodada(Rodada rodada);
 
         IList<Rodada> ListarRodadas(int campeonatoId);
+
+        Resultado CriarRodadas(int campeonatoId, int quantidade);
 
         //Pontuação
         Resultado CriarPontuacao(Pontuacao pontuacao);
@@ -35,10 +39,16 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         IList<Pontuacao> ListarPontuacoes(int campeonatoId);
 
         //Jogador
-        Resultado CriarJogador(Jogador jogador);
+        Resultado CriarJogador(Jogador jogador, int campeonatoId);
 
         Resultado AlterarJogador(Jogador jogador);
 
+        Jogador ConsultarJogador(Jogador jogador);
+
         IList<Jogador> ListarJogadores(int campeonatoId);
+
+        Resultado AssociarJogadorCampeonato(Jogador jogador, Campeonato campeonato);
+
+        Resultado DesassociarJogadorCampeonato(JogadorCampeonato jogadorCampeonato);
     }
 }

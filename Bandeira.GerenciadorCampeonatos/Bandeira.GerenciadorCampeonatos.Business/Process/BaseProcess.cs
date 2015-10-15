@@ -1,6 +1,7 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
@@ -110,6 +111,36 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         protected abstract Resultado ValidateUpdate(T obj);
 
         protected abstract Resultado ValidateDelete(T obj);
+
+        public Resultado SaveChangesContainer()
+        {
+            Resultado resultado = new Resultado();
+
+            try
+            {
+                container.SaveChanges();
+            }
+            catch (DbEntityValidationException evex)
+            {
+                resultado.AddMensagemErro(evex);
+                resultado.AddMensagemErro("Erros do modelo:");
+
+                foreach (DbEntityValidationResult evr in evex.EntityValidationErrors)
+                {
+                    foreach (DbValidationError dve in evr.ValidationErrors)
+                    {
+                        resultado.AddMensagemErro(string.Format("{0}: {1}", dve.PropertyName, dve.ErrorMessage));
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                resultado.AddMensagemErro(ex);
+            }
+
+            return resultado;
+        }
     }
 
     internal abstract class BaseProcess

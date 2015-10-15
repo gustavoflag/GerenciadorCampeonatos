@@ -23,7 +23,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override Jogador SelectByUnique(Jogador obj)
         {
-            throw new NotImplementedException();
+            return Select().Where(j => j.JogadorId == obj.JogadorId).FirstOrDefault();
         }
 
         protected override IQueryable<Jogador> Select()
@@ -84,8 +84,6 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
                 jogadorCampeonato.Jogador = Consultar(jogador);
 
                 container.JogadorCampeonatos.Add(jogadorCampeonato);
-
-                container.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -105,8 +103,6 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
                 jogadorCampeonato = container.JogadorCampeonatos.Where(jc => jc.JogadorCampeonatoId == jogadorCampeonato.JogadorCampeonatoId).FirstOrDefault();
 
                 container.JogadorCampeonatos.Remove(jogadorCampeonato);
-
-                container.SaveChanges();
             }
             catch (Exception ex)
             {

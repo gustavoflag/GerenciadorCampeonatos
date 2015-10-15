@@ -222,6 +222,39 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
             Assert.AreEqual(12, container.Pontuacoes.Where(p => p.Colocacao == 4 && p.Ativo).FirstOrDefault().Pontos);
         }
 
+        [TestMethod]
+        public void CriarRodadasTest()
+        {
+            container = GetRealContainer();
+
+            target = new CampeonatoFacade(container);
+
+            Campeonato campeonato = new Campeonato();
+            //campeonato.CampeonatoId = 4;
+            campeonato.QuantidadeJogadoresPorPartida = 2;
+
+            Resultado resultado = target.CriarCampeonato(campeonato);
+
+            //campeonato = target.ConsultarCampeonato(campeonato);
+
+            Jogador jogador1 = new Jogador() { Nome = "Jogador 1" };
+            Jogador jogador2 = new Jogador() { Nome = "Jogador 2" };
+            Jogador jogador3 = new Jogador() { Nome = "Jogador 3" };
+            Jogador jogador4 = new Jogador() { Nome = "Jogador 4" };
+
+            target.CriarJogador(jogador1, campeonato.CampeonatoId);
+            target.CriarJogador(jogador2, campeonato.CampeonatoId);
+            target.CriarJogador(jogador3, campeonato.CampeonatoId);
+            target.CriarJogador(jogador4, campeonato.CampeonatoId);
+
+            target.CriarRodadas(campeonato.CampeonatoId, 5);
+
+            campeonato = target.ConsultarCampeonato(new Campeonato() { CampeonatoId = campeonato.CampeonatoId });
+
+            Assert.AreEqual(5, campeonato.Rodadas.Count); 
+            
+        }
+
         /*[TestMethod]
         public void CriarCampeonatoRealTest()
         {

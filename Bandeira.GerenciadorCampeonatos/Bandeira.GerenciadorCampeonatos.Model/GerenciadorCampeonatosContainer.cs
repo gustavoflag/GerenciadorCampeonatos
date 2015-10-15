@@ -12,11 +12,10 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
+            //Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
+            Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseAlways<GerenciadorCampeonatosContainer>());
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();   
-
-            //throw new UnintentionalCodeFirstException();
         }
 
         public IDbSet<Campeonato> Campeonatos { get; set; }

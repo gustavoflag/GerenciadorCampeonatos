@@ -44,7 +44,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = campeonatoProcess.Incluir(campeonato);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(campeonatoProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -54,7 +54,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = campeonatoProcess.Alterar(campeonato);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(campeonatoProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -64,18 +64,25 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = campeonatoProcess.Excluir(campeonato);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(campeonatoProcess.SaveChangesContainer());
 
             return resultado;
         }
+
+        public Campeonato ConsultarCampeonato(Campeonato campeonato)
+        {
+            return campeonatoProcess.Consultar(campeonato);
+        }
+
+
 
         //Rodada
         public Resultado CriarRodada(Rodada rodada)
         {
             Resultado resultado = rodadaProcess.Incluir(rodada);
 
-            if (resultado.Sucesso)  
-                container.SaveChanges();
+            if (resultado.Sucesso)
+                resultado.Merge(rodadaProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -94,6 +101,8 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         {
             return rodadaProcess.Listar(campeonatoId);
         }
+
+
 
         //Pontuação
         private Resultado InativaPontuacoesAtivasPreExistentes(Pontuacao pontuacao)
@@ -127,7 +136,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
                 resultado.Merge(pontuacaoProcess.Incluir(pontuacao));
 
                 if (resultado.Sucesso)
-                    container.SaveChanges();
+                    resultado.Merge(pontuacaoProcess.SaveChangesContainer());
             }
 
             return resultado;
@@ -152,7 +161,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             }
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(pontuacaoProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -173,12 +182,18 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         }
 
         //Jogador
-        public Resultado CriarJogador(Jogador jogador)
-        {
+        public Resultado CriarJogador(Jogador jogador, int campeonatoId)
+        {           
             Resultado resultado = jogadorProcess.Incluir(jogador);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(jogadorProcess.SaveChangesContainer());
+            
+            if (resultado.Sucesso)
+                resultado.Merge(jogadorProcess.AssociaCampeonato(jogador, new Campeonato() { CampeonatoId = campeonatoId }));
+
+            if (resultado.Sucesso)
+                resultado.Merge(jogadorProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -188,14 +203,92 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = jogadorProcess.Alterar(jogador);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(jogadorProcess.SaveChangesContainer());
 
             return resultado;
+        }
+
+        public Jogador ConsultarJogador(Jogador jogador)
+        {
+            return jogadorProcess.Consultar(jogador);
         }
 
         public IList<Jogador> ListarJogadores(int campeonatoId)
         {
             return jogadorProcess.Listar(campeonatoId);
+        }
+
+        public Resultado AssociarJogadorCampeonato(Jogador jogador, Campeonato campeonato)
+        {
+            Resultado resultado = jogadorProcess.AssociaCampeonato(jogador, campeonato);
+
+            if (resultado.Sucesso)
+                resultado.Merge(jogadorProcess.SaveChangesContainer());
+
+            return resultado;
+        }
+
+        public Resultado DesassociarJogadorCampeonato(JogadorCampeonato jogadorCampeonato)
+        {
+            Resultado resultado = jogadorProcess.DesassociaCampeonato(jogadorCampeonato);
+
+            if (resultado.Sucesso)
+                resultado.Merge(jogadorProcess.SaveChangesContainer());
+
+            return resultado;
+        }
+
+        public Resultado CriarRodadas(int campeonatoId, int quantidade)
+        {
+            Queue<Jogador> jogadoresCampeonato = new Queue<Jogador>(ListarJogadores(campeonatoId));
+
+            Resultado resultado = new Resultado();
+
+            Campeonato campeonato = campeonatoProcess.Consultar(new Campeonato() { CampeonatoId = campeonatoId });
+
+            for (int i = 1; i < quantidade + 1; i++)
+            {
+                Rodada rodada = new Rodada();
+                rodada.Numero = i;
+                rodada.CampeonatoId = campeonatoId;
+
+                if (campeonato.QuantidadeJogadoresPorPartida.HasValue)
+                {
+                    double quantidadeJogosPorRodada = jogadoresCampeonato.Count / campeonato.QuantidadeJogadoresPorPartida.Value;
+
+                    if (quantidadeJogosPorRodada % 1 == 0)
+                    {
+                        for (int j = 0; j < quantidadeJogosPorRodada; j++)
+                        {
+                            Partida partida = new Partida();
+
+                            for (int k = 0; k < campeonato.QuantidadeJogadoresPorPartida; k++)
+                            {
+                                Jogador jogador = jogadoresCampeonato.Dequeue();
+
+                                Competidor competidor = new Competidor();
+                                competidor.Jogador = jogador;
+
+                                partida.Competidores.Add(competidor);
+
+                                jogadoresCampeonato.Enqueue(jogador);
+                            }
+
+                            rodada.Partidas.Add(partida);
+                        }
+                    }
+                }
+
+                resultado.Merge(rodadaProcess.Incluir(rodada));
+
+                if (!resultado.Sucesso)
+                    return resultado;
+            }
+
+            if (resultado.Sucesso)
+                resultado.Merge(rodadaProcess.SaveChangesContainer());
+            
+            return resultado;
         }
     }
 }

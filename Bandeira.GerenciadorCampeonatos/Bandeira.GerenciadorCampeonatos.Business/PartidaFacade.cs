@@ -39,7 +39,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = localProcess.Incluir(local);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(localProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -49,7 +49,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = localProcess.Alterar(local);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(localProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -59,7 +59,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = localProcess.Excluir(local);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(localProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -75,7 +75,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = partidaProcess.Incluir(partida);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(partidaProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -96,7 +96,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             }
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(partidaProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -112,7 +112,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = partidaProcess.InsereResultado(partida, competidor, pontuacao, valor);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(partidaProcess.SaveChangesContainer());
 
             return resultado;
         }
@@ -122,7 +122,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             Resultado resultado = partidaProcess.ApagaResultado(resultadoPartida);
 
             if (resultado.Sucesso)
-                container.SaveChanges();
+                resultado.Merge(partidaProcess.SaveChangesContainer());
 
             return resultado;
         }

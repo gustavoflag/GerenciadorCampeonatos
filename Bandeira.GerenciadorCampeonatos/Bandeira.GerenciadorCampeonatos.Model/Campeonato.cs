@@ -19,6 +19,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CampeonatoId { get; set; }
 
+        public int? QuantidadeJogadoresPorPartida { get; set; }
+
         [UniqueKey]
         public string Nome { get; set; }
 

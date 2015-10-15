@@ -17,6 +17,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public int RodadaId { get; set; }
     
         public int CampeonatoId { get; set; }
+
+        [Required]
         public int Numero { get; set; }
 
         [Required]
