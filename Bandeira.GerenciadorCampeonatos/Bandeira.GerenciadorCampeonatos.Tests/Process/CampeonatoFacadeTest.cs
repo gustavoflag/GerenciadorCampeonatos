@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bandeira.GerenciadorCampeonatos.Model;
 using Bandeira.GerenciadorCampeonatos.Tests.Mocks;
 using Bandeira.GerenciadorCampeonatos.Business;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Bandeira.GerenciadorCampeonatos.Tests.Process
 {
     [TestClass]
     public class CampeonatoFacadeTest
-    {
+    { 
         private IContainer container;
         private ICampeonatoFacade target;
 
@@ -253,6 +253,80 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
 
             Assert.AreEqual(5, campeonato.Rodadas.Count); 
             
+        }
+
+        [TestMethod]
+        public void GerarConfrontosTest()
+        {
+            container = GetFakeContainer();
+            target = new CampeonatoFacade(container);
+
+            Jogador jogador1 = new Jogador() { JogadorId = 1, Nome = "Jogador 1" };
+            Jogador jogador2 = new Jogador() { JogadorId = 2, Nome = "Jogador 2" };
+            Jogador jogador3 = new Jogador() { JogadorId = 3, Nome = "Jogador 3" };
+            Jogador jogador4 = new Jogador() { JogadorId = 4, Nome = "Jogador 4" };
+            Jogador jogador5 = new Jogador() { JogadorId = 5, Nome = "Jogador 5" };
+            //Jogador jogador6 = new Jogador() { JogadorId = 6, Nome = "Jogador 6" };
+            
+
+            IList<Jogador> jogadores = new List<Jogador>();
+            jogadores.Add(jogador1);
+            jogadores.Add(jogador2);
+            jogadores.Add(jogador3);
+            jogadores.Add(jogador4);
+            jogadores.Add(jogador5);
+            //jogadores.Add(jogador6);
+
+            IList<Rodada> rodadas = target.GerarConfrontos(jogadores, 2);
+        }
+
+        [TestMethod]
+        public void GerarCampeonatoPokerTest()
+        {
+            container = GetRealContainer();
+
+            CampeonatoFacade campeonatoFacade = new CampeonatoFacade(container);
+
+            Campeonato campeonatoPoker = new Campeonato();
+            campeonatoPoker.Nome = "TQSOP Poker";
+
+            campeonatoFacade.CriarCampeonato(campeonatoPoker);
+
+            campeonatoPoker = campeonatoFacade.ConsultarCampeonato("TQSOP Poker");
+
+            Pontuacao primeiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 1, Pontos = 10 };
+            Pontuacao segundo = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 2, Pontos = 6 };
+            Pontuacao terceiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 3, Pontos = 4 };
+            Pontuacao quarto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 4, Pontos = 3 };
+            Pontuacao quinto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 5, Pontos = 2 };
+            Pontuacao sexto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 6, Pontos = 1 };
+
+            campeonatoFacade.CriarPontuacao(primeiro);
+            campeonatoFacade.CriarPontuacao(segundo);
+            campeonatoFacade.CriarPontuacao(terceiro);
+            campeonatoFacade.CriarPontuacao(quarto);
+            campeonatoFacade.CriarPontuacao(quinto);
+            campeonatoFacade.CriarPontuacao(sexto);
+
+            Jogador flag = new Jogador() { Nome = "Flag" };
+            Jogador andre = new Jogador() { Nome = "Andre" };
+            Jogador julio = new Jogador() { Nome = "Julio" };
+            Jogador fernando = new Jogador() { Nome = "Fernando" };
+            Jogador bento = new Jogador() { Nome = "Bento" };
+
+            campeonatoFacade.CriarJogador(flag, campeonatoPoker.CampeonatoId);
+            campeonatoFacade.CriarJogador(andre, campeonatoPoker.CampeonatoId);
+            campeonatoFacade.CriarJogador(julio, campeonatoPoker.CampeonatoId);
+            campeonatoFacade.CriarJogador(fernando, campeonatoPoker.CampeonatoId);
+            campeonatoFacade.CriarJogador(bento, campeonatoPoker.CampeonatoId);
+
+            Rodada rodada = new Rodada() { CampeonatoId = campeonatoPoker.CampeonatoId, Numero = 1 };
+
+            campeonatoFacade.CriarRodada(rodada);
+
+            //campeonatoFacade.
+
+            PartidaFacade partidaFacade = new PartidaFacade(container);
         }
 
         /*[TestMethod]

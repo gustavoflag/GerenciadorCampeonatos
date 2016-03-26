@@ -74,7 +74,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return campeonatoProcess.Consultar(campeonato);
         }
 
-
+        public Campeonato ConsultarCampeonato(string nome)
+        {
+            return campeonatoProcess.ConsultarPorNome(nome);
+        }
 
         //Rodada
         public Resultado CriarRodada(Rodada rodada)
@@ -289,6 +292,61 @@ namespace Bandeira.GerenciadorCampeonatos.Business
                 resultado.Merge(rodadaProcess.SaveChangesContainer());
             
             return resultado;
+        }
+
+        public IList<Rodada> GerarConfrontos(IList<Jogador> jogadores, int qtdPorJogo)
+        {
+            IList<Rodada> rodadas = new List<Rodada>();
+
+            if (jogadores.Count % 2 != 0)
+            {
+                jogadores.Add(new Jogador() { JogadorId = -1 });
+            }
+
+            IList<Jogador> lista1 = new List<Jogador>();
+            IList<Jogador> lista2 = new List<Jogador>();
+
+            for (int i = 0; i < jogadores.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    lista1.Add(jogadores[i]);
+                }
+                else
+                {
+                    lista2.Add(jogadores[i]);
+                }
+            }
+
+
+            for (int j = 1; j < jogadores.Count; j++)
+            {
+                Rodada rodada = new Rodada() { Numero = j };
+
+                for (int i = 0; i < lista2.Count; i++)
+                {
+                    if (lista1[i].JogadorId > 0 && lista2[i].JogadorId > 0)
+                    {
+                        Partida partida = new Partida();
+                        partida.Competidores.Add(new Competidor() { JogadorId = lista1[i].JogadorId });
+                        partida.Competidores.Add(new Competidor() { JogadorId = lista2[i].JogadorId });
+
+                        rodada.Partidas.Add(partida);
+                    }
+                }
+
+                //Gira
+                lista1.Insert(1, lista2[0]);
+                lista2.Add(lista1[lista1.Count - 1]);
+
+                lista1.RemoveAt(lista1.Count - 1);
+                lista2.RemoveAt(0);
+
+                rodadas.Add(rodada);
+            }
+
+            
+            return rodadas;
         }
     }
 }

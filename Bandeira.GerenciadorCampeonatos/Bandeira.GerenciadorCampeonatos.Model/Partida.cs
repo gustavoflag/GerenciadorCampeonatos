@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace Bandeira.GerenciadorCampeonatos.Model
 {
@@ -32,5 +33,19 @@ namespace Bandeira.GerenciadorCampeonatos.Model
 
         [ForeignKey("LocalId")]
         public virtual Local Local { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Competidores: ");
+            
+            foreach(Competidor competidor in Competidores)
+            {
+                sb.Append(competidor.JogadorId);
+                sb.Append(",");
+            }
+
+            return sb.ToString(); 
+        }
     }
 }

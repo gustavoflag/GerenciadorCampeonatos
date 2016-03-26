@@ -1,3 +1,4 @@
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.csprojResolveAssemblyReference.cache
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll.config
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Tests.pdb
@@ -5,12 +6,14 @@ C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeir
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Model.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Moq.dll
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\nunit.framework.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Business.pdb
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Bandeira.GerenciadorCampeonatos.Model.pdb
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.xml
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\Moq.xml
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.csprojResolveAssemblyReference.cache
+C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\bin\Debug\nunit.framework.xml
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Tests\obj\Debug\Bandeira.GerenciadorCampeonatos.Tests.pdb

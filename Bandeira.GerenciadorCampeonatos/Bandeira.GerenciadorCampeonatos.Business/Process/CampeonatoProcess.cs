@@ -76,5 +76,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             return new Resultado();
         }
+
+        public Campeonato ConsultarPorNome(string nome)
+        {
+            return Select().Where(c => c.Nome == nome).FirstOrDefault();
+        }
     }
 }

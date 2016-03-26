@@ -9,14 +9,14 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         private PartidaProcess partidaProcess;
         private LocalProcess localProcess;
         private CompetidorProcess competidorProcess;
-        private GerenciadorCampeonatosContainer container;
+        private IContainer container;
 
         public PartidaFacade()
             :this(new GerenciadorCampeonatosContainer())
         {
         }
 
-        public PartidaFacade(GerenciadorCampeonatosContainer container)
+        public PartidaFacade(IContainer container)
         {
             this.container = container;
             partidaProcess = new PartidaProcess(container);

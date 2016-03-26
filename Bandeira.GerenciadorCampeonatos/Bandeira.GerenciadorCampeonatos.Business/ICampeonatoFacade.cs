@@ -50,5 +50,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         Resultado AssociarJogadorCampeonato(Jogador jogador, Campeonato campeonato);
 
         Resultado DesassociarJogadorCampeonato(JogadorCampeonato jogadorCampeonato);
+
+        IList<Rodada> GerarConfrontos(IList<Jogador> jogadores, int qtdPorJogo);
     }
 }
