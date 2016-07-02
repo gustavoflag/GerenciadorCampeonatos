@@ -18,6 +18,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         IDbSet<ResultadoPartida> Resultados { get; set; }
         IDbSet<Local> Locais { get; set; }
         IDbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
+        IDbSet<Perfil> Perfis { get; set; }
+        IDbSet<Usuario> Usuarios { get; set; }
 
         int SaveChanges();
     }

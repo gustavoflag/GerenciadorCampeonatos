@@ -30,7 +30,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override IQueryable<Campeonato> Select()
         {
-            return container.Campeonatos;
+            return container.Campeonatos.Include("Pontuacoes");
         }
 
         protected override void Insert(Campeonato obj)
@@ -53,9 +53,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             Resultado resultado = new Resultado();
 
             if (container.Campeonatos.Any(c => c.Nome == obj.Nome))
-            {
                 resultado.AddMensagemErro("Já existe um campeonato com esse nome");
-            }
 
             return resultado;
         }
@@ -65,9 +63,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             Resultado resultado = new Resultado();
 
             if (container.Campeonatos.Any(c => c.Nome == obj.Nome && c.CampeonatoId != obj.CampeonatoId))
-            {
                 resultado.AddMensagemErro("Já existe outro campeonato com esse nome");
-            }
 
             return resultado;
         }

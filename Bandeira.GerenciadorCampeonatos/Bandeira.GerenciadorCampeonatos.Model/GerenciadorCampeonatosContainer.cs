@@ -12,8 +12,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
-            Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseAlways<GerenciadorCampeonatosContainer>());
+            Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseIfModelChanges<GerenciadorCampeonatosContainer>());
+            //Database.SetInitializer<GerenciadorCampeonatosContainer>(new DropCreateDatabaseAlways<GerenciadorCampeonatosContainer>());
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();   
         }
@@ -27,5 +27,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public IDbSet<ResultadoPartida> Resultados { get; set; }
         public IDbSet<Local> Locais { get; set; }
         public IDbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
+        public IDbSet<Perfil> Perfis { get; set; }
+        public IDbSet<Usuario> Usuarios { get; set; }
+
     }
 }

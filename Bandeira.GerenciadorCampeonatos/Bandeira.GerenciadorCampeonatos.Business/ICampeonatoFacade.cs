@@ -45,6 +45,8 @@ namespace Bandeira.GerenciadorCampeonatos.Business
 
         Jogador ConsultarJogador(Jogador jogador);
 
+        Jogador ConsultarJogador(string nome);
+
         IList<Jogador> ListarJogadores(int campeonatoId);
 
         Resultado AssociarJogadorCampeonato(Jogador jogador, Campeonato campeonato);

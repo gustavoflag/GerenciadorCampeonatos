@@ -1,9 +1,6 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
@@ -74,6 +71,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         internal IList<Rodada> Listar(int campeonatoId)
         {
             return Select().Where(r => r.CampeonatoId == campeonatoId).ToList();
+        }
+
+        internal Rodada Consultar(int campeonatoId, int numero)
+        {
+            return Select().Where(r => r.CampeonatoId == campeonatoId && r.Numero == numero).FirstOrDefault();
         }
     }
 }

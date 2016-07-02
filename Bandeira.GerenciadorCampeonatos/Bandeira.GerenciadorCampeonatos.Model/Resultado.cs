@@ -104,8 +104,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
                 {
                     foreach (string mensagem in Mensagens.Distinct())
                     {
+                        sb.Append(" - ");
                         sb.Append(mensagem);
-                        sb.Append("<BR>");
                     }
                 }
                 return sb.ToString();

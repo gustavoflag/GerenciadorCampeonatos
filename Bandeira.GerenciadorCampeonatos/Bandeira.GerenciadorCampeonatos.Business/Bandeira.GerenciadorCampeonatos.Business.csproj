@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcessoFacade.cs" />
     <Compile Include="CampeonatoFacade.cs" />
+    <Compile Include="IAcessoFacade.cs" />
     <Compile Include="ICampeonatoFacade.cs" />
     <Compile Include="PartidaFacade.cs" />
     <Compile Include="Process\BaseProcess.cs" />
@@ -57,7 +59,9 @@
     <Compile Include="Process\JogadorProcess.cs" />
     <Compile Include="Process\LocalProcess.cs" />
     <Compile Include="Process\PartidaProcess.cs" />
+    <Compile Include="Process\PerfilProcess.cs" />
     <Compile Include="Process\PontuacaoProcess.cs" />
+    <Compile Include="Process\UsuarioProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Process\RodadaProcess.cs" />
   </ItemGroup>

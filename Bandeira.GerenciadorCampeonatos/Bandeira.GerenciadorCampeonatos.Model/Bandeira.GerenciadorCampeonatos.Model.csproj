@@ -60,11 +60,13 @@
     <Compile Include="JogadorCampeonato.cs" />
     <Compile Include="Local.cs" />
     <Compile Include="Partida.cs" />
+    <Compile Include="Perfil.cs" />
     <Compile Include="Pontuacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="ResultadoPartida.cs" />
     <Compile Include="Rodada.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

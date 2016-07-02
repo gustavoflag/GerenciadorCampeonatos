@@ -1,6 +1,7 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override IQueryable<Competidor> Select()
         {
-            return container.Competidores;
+            return container.Competidores.Include("Jogador");
         }
 
         protected override Competidor SelectByUnique(Competidor obj)
@@ -50,7 +51,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Competidores.Any(c => c.PartidaId == obj.PartidaId && c.Jogador.JogadorId == obj.Jogador.JogadorId))
+            if (container.Competidores.Any(c => c.PartidaId == obj.PartidaId && c.JogadorId == obj.JogadorId))
             {
                 resultado.AddMensagemErro("Esse jogador já foi associado a essa partida.");
             }
@@ -66,6 +67,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         protected override Resultado ValidateDelete(Competidor obj)
         {
             return new Resultado();
+        }
+
+        internal Competidor ConsultarCompetidor(string nomeJogador, int partidaId)
+        {
+            return Select().FirstOrDefault(c => c.Jogador.Nome == nomeJogador && c.PartidaId == partidaId);
         }
     }
 }

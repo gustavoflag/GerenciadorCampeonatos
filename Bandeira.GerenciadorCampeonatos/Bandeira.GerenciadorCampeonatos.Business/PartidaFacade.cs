@@ -106,6 +106,27 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return partidaProcess.Listar(campeonatoId, rodadaNumero);
         }
 
+        public Resultado CriarCompetidor(Competidor competidor)
+        {
+            Resultado resultado = competidorProcess.Incluir(competidor);
+
+            if (resultado.Sucesso)
+                resultado.Merge(partidaProcess.SaveChangesContainer());
+
+            return resultado;
+        }
+
+        public Partida ConsultarPartida(Partida partida)
+        {
+            return partidaProcess.Consultar(partida);
+        }
+
+        //Competidor
+        public Competidor ConsultarCompetidor(string nomeJogador, int partidaId)
+        {
+            return competidorProcess.ConsultarCompetidor(nomeJogador, partidaId);
+        }
+
         //ResultadoPartida
         public Resultado InsereResultadoPartida(Partida partida, Competidor competidor, Pontuacao pontuacao, int valor)
         {

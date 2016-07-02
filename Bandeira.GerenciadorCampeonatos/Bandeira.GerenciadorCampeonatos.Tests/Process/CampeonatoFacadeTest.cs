@@ -287,46 +287,97 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Process
 
             CampeonatoFacade campeonatoFacade = new CampeonatoFacade(container);
 
-            Campeonato campeonatoPoker = new Campeonato();
-            campeonatoPoker.Nome = "TQSOP Poker";
+            //Campeonato campeonatoPoker = new Campeonato();
+            //campeonatoPoker.Nome = "TQSOP Poker";
 
-            campeonatoFacade.CriarCampeonato(campeonatoPoker);
+            //campeonatoFacade.CriarCampeonato(campeonatoPoker);
 
-            campeonatoPoker = campeonatoFacade.ConsultarCampeonato("TQSOP Poker");
+            ////campeonatoPoker = campeonatoFacade.ConsultarCampeonato("TQSOP Poker");
 
-            Pontuacao primeiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 1, Pontos = 10 };
-            Pontuacao segundo = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 2, Pontos = 6 };
-            Pontuacao terceiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 3, Pontos = 4 };
-            Pontuacao quarto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 4, Pontos = 3 };
-            Pontuacao quinto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 5, Pontos = 2 };
-            Pontuacao sexto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 6, Pontos = 1 };
+            //Pontuacao primeiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 1, Pontos = 10 };
+            //Pontuacao segundo = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 2, Pontos = 6 };
+            //Pontuacao terceiro = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 3, Pontos = 4 };
+            //Pontuacao quarto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 4, Pontos = 3 };
+            //Pontuacao quinto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 5, Pontos = 2 };
+            //Pontuacao sexto = new Pontuacao() { CampeonatoId = campeonatoPoker.CampeonatoId, Colocacao = 6, Pontos = 1 };
 
-            campeonatoFacade.CriarPontuacao(primeiro);
-            campeonatoFacade.CriarPontuacao(segundo);
-            campeonatoFacade.CriarPontuacao(terceiro);
-            campeonatoFacade.CriarPontuacao(quarto);
-            campeonatoFacade.CriarPontuacao(quinto);
-            campeonatoFacade.CriarPontuacao(sexto);
+            //campeonatoFacade.CriarPontuacao(primeiro);
+            //campeonatoFacade.CriarPontuacao(segundo);
+            //campeonatoFacade.CriarPontuacao(terceiro);
+            //campeonatoFacade.CriarPontuacao(quarto);
+            //campeonatoFacade.CriarPontuacao(quinto);
+            //campeonatoFacade.CriarPontuacao(sexto);
 
-            Jogador flag = new Jogador() { Nome = "Flag" };
-            Jogador andre = new Jogador() { Nome = "Andre" };
-            Jogador julio = new Jogador() { Nome = "Julio" };
-            Jogador fernando = new Jogador() { Nome = "Fernando" };
-            Jogador bento = new Jogador() { Nome = "Bento" };
+            //Jogador flag = new Jogador() { Nome = "Flag" };
+            //Jogador andre = new Jogador() { Nome = "Andre" };
+            //Jogador julio = new Jogador() { Nome = "Julio" };
+            //Jogador fernando = new Jogador() { Nome = "Fernando" };
+            //Jogador bento = new Jogador() { Nome = "Bento" };
 
-            campeonatoFacade.CriarJogador(flag, campeonatoPoker.CampeonatoId);
-            campeonatoFacade.CriarJogador(andre, campeonatoPoker.CampeonatoId);
-            campeonatoFacade.CriarJogador(julio, campeonatoPoker.CampeonatoId);
-            campeonatoFacade.CriarJogador(fernando, campeonatoPoker.CampeonatoId);
-            campeonatoFacade.CriarJogador(bento, campeonatoPoker.CampeonatoId);
+            //campeonatoFacade.CriarJogador(flag, campeonatoPoker.CampeonatoId);
+            //campeonatoFacade.CriarJogador(andre, campeonatoPoker.CampeonatoId);
+            //campeonatoFacade.CriarJogador(julio, campeonatoPoker.CampeonatoId);
+            //campeonatoFacade.CriarJogador(fernando, campeonatoPoker.CampeonatoId);
+            //campeonatoFacade.CriarJogador(bento, campeonatoPoker.CampeonatoId);
 
-            Rodada rodada = new Rodada() { CampeonatoId = campeonatoPoker.CampeonatoId, Numero = 1 };
+            
+
+            Campeonato campeonatoPoker = campeonatoFacade.ConsultarCampeonato("TQSOP Poker");
+
+            //rodada = campeonatoFacade.ConsultarRodada(campeonatoPoker.CampeonatoId, 1);
+
+            Rodada rodada = new Rodada() { CampeonatoId = campeonatoPoker.CampeonatoId, Numero = 2 };
 
             campeonatoFacade.CriarRodada(rodada);
 
-            //campeonatoFacade.
+            ////campeonatoFacade.
 
             PartidaFacade partidaFacade = new PartidaFacade(container);
+
+            Partida partida = new Partida() { RodadaId = rodada.RodadaId };
+
+            partidaFacade.CriarPartida(partida);
+
+            //Jogador flag = new Jogador() { Nome = "Flag" };
+
+            Jogador flag = campeonatoFacade.ConsultarJogador("Flag");
+            Jogador andre = campeonatoFacade.ConsultarJogador("Andre");
+            Jogador julio = campeonatoFacade.ConsultarJogador("Julio");
+            Jogador fernando = campeonatoFacade.ConsultarJogador("Fernando");
+            Jogador bento = campeonatoFacade.ConsultarJogador("Bento");
+
+            
+
+            Competidor cflag = new Competidor() { JogadorId = flag.JogadorId, PartidaId = partida.PartidaId };
+            Competidor candre = new Competidor() { JogadorId = andre.JogadorId, PartidaId = partida.PartidaId };
+            Competidor cjulio = new Competidor() { JogadorId = julio.JogadorId, PartidaId = partida.PartidaId };
+            Competidor cfernando = new Competidor() { JogadorId = fernando.JogadorId, PartidaId = partida.PartidaId };
+            Competidor cbento = new Competidor() { JogadorId = bento.JogadorId, PartidaId = partida.PartidaId };
+
+            
+
+            //Partida partida = partidaFacade.ConsultarPartida(new Partida() { PartidaId = 1 });
+
+            //Competidor cflag = partidaFacade.ConsultarCompetidor(flag.Nome, partida.PartidaId);
+            //Competidor candre = partidaFacade.ConsultarCompetidor(andre.Nome, partida.PartidaId);
+            //Competidor cjulio = partidaFacade.ConsultarCompetidor(julio.Nome, partida.PartidaId);
+            //Competidor cfernando = partidaFacade.ConsultarCompetidor(fernando.Nome, partida.PartidaId);
+            //Competidor cbento = partidaFacade.ConsultarCompetidor(bento.Nome, partida.PartidaId);
+
+            partidaFacade.CriarCompetidor(cflag);
+            partidaFacade.CriarCompetidor(candre);
+            partidaFacade.CriarCompetidor(cjulio);
+            partidaFacade.CriarCompetidor(cfernando);
+            partidaFacade.CriarCompetidor(cbento);
+
+            
+
+            partidaFacade.InsereResultadoPartida(partida, cfernando, campeonatoPoker.Pontuacoes.FirstOrDefault(p => p.Colocacao == 4), 15);
+            partidaFacade.InsereResultadoPartida(partida, cflag, campeonatoPoker.Pontuacoes.FirstOrDefault(p => p.Colocacao == 1), 15);
+            partidaFacade.InsereResultadoPartida(partida, candre, campeonatoPoker.Pontuacoes.FirstOrDefault(p => p.Colocacao == 5), 15);
+            partidaFacade.InsereResultadoPartida(partida, cbento, campeonatoPoker.Pontuacoes.FirstOrDefault(p => p.Colocacao == 2), 15);
+            partidaFacade.InsereResultadoPartida(partida, cjulio, campeonatoPoker.Pontuacoes.FirstOrDefault(p => p.Colocacao == 3), 15);
+
         }
 
         /*[TestMethod]

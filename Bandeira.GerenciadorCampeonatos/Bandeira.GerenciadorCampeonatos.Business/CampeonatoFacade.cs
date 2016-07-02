@@ -38,6 +38,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             this.jogadorProcess = jogadorProcess;
         }*/
 
+
         //Campeonato
         public Resultado CriarCampeonato(Campeonato campeonato)
         {
@@ -79,6 +80,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return campeonatoProcess.ConsultarPorNome(nome);
         }
 
+
         //Rodada
         public Resultado CriarRodada(Rodada rodada)
         {
@@ -105,7 +107,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return rodadaProcess.Listar(campeonatoId);
         }
 
-
+        public Rodada ConsultarRodada(int campeonatoId, int numero)
+        {
+            return rodadaProcess.Consultar(campeonatoId, numero);
+        }
 
         //Pontuação
         private Resultado InativaPontuacoesAtivasPreExistentes(Pontuacao pontuacao)
@@ -215,6 +220,12 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         {
             return jogadorProcess.Consultar(jogador);
         }
+
+        public Jogador ConsultarJogador(string nome)
+        {
+            return jogadorProcess.Consultar(nome);
+        }
+
 
         public IList<Jogador> ListarJogadores(int campeonatoId)
         {
