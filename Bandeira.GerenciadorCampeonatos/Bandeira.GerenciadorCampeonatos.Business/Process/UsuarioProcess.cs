@@ -1,6 +1,7 @@
 ﻿using Bandeira.GerenciadorCampeonatos.Model;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Helpers;
 
 namespace Bandeira.GerenciadorCampeonatos.Business.Process
 {
@@ -25,6 +26,8 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
         protected override void Insert(Usuario obj)
         {
+            obj.Senha = Crypto.HashPassword(obj.Senha);
+
             container.Usuarios.Add(obj);
         }
 
@@ -100,7 +103,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
                 }
                 else
                 {
-                    if (usuario.Senha != senha)
+                    if (!Crypto.VerifyHashedPassword(usuario.Senha, senha))
                     {
                         resultado.AddMensagemErro("Senha incorreta");
                     }

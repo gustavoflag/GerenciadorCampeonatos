@@ -11,7 +11,6 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
-        // Retorna Nosso Authentication Manager
         private IAuthenticationManager Authentication
         {
             get { return HttpContext.Current.GetOwinContext().Authentication; }

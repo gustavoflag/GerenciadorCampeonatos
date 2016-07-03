@@ -23,10 +23,9 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI.Providers
         }
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext c)
-        {
-            Resultado resultadoLogin = acessoFacade.Login(c.UserName, c.Password);
+        { 
+            Resultado resultadoLogin = acessoFacade.Login(c.UserName, c.Password);  
 
-            // Aqui você deve implementar sua regra de autenticação
             if (resultadoLogin.Sucesso)
             {
                 Claim claim1 = new Claim(ClaimTypes.Name, c.UserName);
