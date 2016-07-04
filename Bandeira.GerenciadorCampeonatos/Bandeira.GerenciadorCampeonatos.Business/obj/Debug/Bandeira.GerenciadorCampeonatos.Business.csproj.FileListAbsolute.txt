@@ -15,5 +15,3 @@ C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeir
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\System.Web.Razor.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\Newtonsoft.Json.dll
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Business\bin\Debug\Newtonsoft.Json.xml

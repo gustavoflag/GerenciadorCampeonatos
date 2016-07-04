@@ -8,5 +8,3 @@ C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeir
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\obj\Debug\Bandeira.GerenciadorCampeonatos.Model.dll
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\obj\Debug\Bandeira.GerenciadorCampeonatos.Model.pdb
 C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\obj\Debug\Bandeira.GerenciadorCampeonatos.Model.csprojResolveAssemblyReference.cache
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\Newtonsoft.Json.dll
-C:\Users\flag\git\GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos\Bandeira.GerenciadorCampeonatos.Model\bin\Debug\Newtonsoft.Json.xml

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bandeira.GerenciadorCampeonatos.WebAPI.Mappers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,15 +16,13 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI
         {
             HttpConfiguration config = GlobalConfiguration.Configuration;
 
-            config.Formatters.JsonFormatter
-                        .SerializerSettings
-                        .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

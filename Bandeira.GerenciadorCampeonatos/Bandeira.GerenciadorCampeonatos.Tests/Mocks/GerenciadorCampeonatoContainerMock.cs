@@ -120,6 +120,8 @@ namespace Bandeira.GerenciadorCampeonatos.Tests.Mocks
         public IDbSet<ResultadoPartida> Resultados { get; set; }
         public IDbSet<Local> Locais { get; set; }
         public IDbSet<JogadorCampeonato> JogadorCampeonatos { get; set; }
+        public IDbSet<Usuario> Usuarios { get; set; }
+        public IDbSet<Perfil> Perfis { get; set; }
 
         public int SaveChanges()
         {
