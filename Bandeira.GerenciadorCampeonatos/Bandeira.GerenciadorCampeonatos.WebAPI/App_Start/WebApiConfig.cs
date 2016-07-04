@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bandeira.GerenciadorCampeonatos.WebAPI.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +20,8 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new ValidateModelAttribute());
         }
     }
 }

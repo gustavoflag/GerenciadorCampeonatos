@@ -60,7 +60,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             if (container.Usuarios.Any(c => c.Login == obj.Login && c.UsuarioId != obj.UsuarioId))
                 resultado.AddMensagemErro("Já existe outro usuário com esse Login");
 
-            if (obj.Login.Length < 4)
+            if (obj.Login == null || obj.Login.Length < 4)
                 resultado.AddMensagemErro("Campo Login deve ter ao menos 4 caracteres.");
 
             return resultado;

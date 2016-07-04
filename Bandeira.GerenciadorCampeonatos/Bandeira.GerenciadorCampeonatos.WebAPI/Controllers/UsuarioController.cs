@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Bandeira.GerenciadorCampeonatos.Business;
 using Bandeira.GerenciadorCampeonatos.Model;
+using Bandeira.GerenciadorCampeonatos.WebAPI.Filters;
 using Bandeira.GerenciadorCampeonatos.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI.Controllers
         }
 
         // POST api/usuario
+        [ValidateModel()]
         public Resultado Post([FromBody]UsuarioView usuario)
         {
             return acessoFacade.CriarUsuario(Mapper.Map<Usuario>(usuario));
