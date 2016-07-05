@@ -44,7 +44,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         protected override void Update(Usuario objBanco, Usuario obj)
         {
             objBanco.Login = obj.Login;
-            objBanco.Senha = obj.Senha;
+
+            if (!string.IsNullOrEmpty(obj.Senha))
+                objBanco.Senha = Crypto.HashPassword(obj.Senha);
+
             objBanco.PerfilId = obj.PerfilId;
         }
 

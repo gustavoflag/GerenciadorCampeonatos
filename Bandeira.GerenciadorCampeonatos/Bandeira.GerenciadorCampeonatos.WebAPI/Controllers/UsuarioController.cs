@@ -29,9 +29,9 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI.Controllers
         }
 
         // GET api/usuario/5
-        public UsuarioView Get(int usuarioId)
+        public UsuarioView Get(int id)
         {
-            return Mapper.Map<UsuarioView>(acessoFacade.ConsultarUsuario(new Usuario() { UsuarioId = usuarioId }));
+            return Mapper.Map<UsuarioView>(acessoFacade.ConsultarUsuario(new Usuario() { UsuarioId = id }));
         }
 
         // POST api/usuario
@@ -42,6 +42,7 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI.Controllers
         }
 
         // PUT api/usuario/5
+        [ValidateModel()]
         public Resultado Put(int id, [FromBody]UsuarioView usuario)
         {
             usuario.UsuarioId = id;
