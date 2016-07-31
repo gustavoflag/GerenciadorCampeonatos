@@ -51,7 +51,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         {
             Resultado resultado = new Resultado();
 
-            if (container.Locais.Any(l => l.Localizacao.Latitude == obj.Localizacao.Latitude && l.Localizacao.Longitude == obj.Localizacao.Longitude))
+            if (container.Locais.Any(l => l.Localizacao != null && l.Localizacao.Latitude == obj.Localizacao.Latitude && l.Localizacao.Longitude == obj.Localizacao.Longitude))
                 resultado.AddMensagemErro("Já existe uma localização com a mesma geolocalização");
 
             if (container.Locais.Any(l => l.Nome == obj.Nome))

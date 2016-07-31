@@ -15,6 +15,6 @@ namespace Bandeira.GerenciadorCampeonatos.Business
         Resultado ExcluirUsuario(Usuario usuario);
         IList<Perfil> ListarPerfis();
         IList<Usuario> ListarUsuarios();
-        Resultado Login(string login, string senha);
+        Resultado<Usuario> Login(string login, string senha);
     }
 }

@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace Bandeira.GerenciadorCampeonatos.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Acesso")]
     public class UsuarioController : ApiController
     {
         private IAcessoFacade acessoFacade;

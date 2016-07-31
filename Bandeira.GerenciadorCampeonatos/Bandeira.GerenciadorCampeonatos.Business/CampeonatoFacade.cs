@@ -359,5 +359,10 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             
             return rodadas;
         }
+
+        public IList<JogadorCampeonato> ListarClassificacao(int campeonatoId)
+        {
+            return campeonatoProcess.ListarClassificacao(campeonatoId);
+        }
     }
 }

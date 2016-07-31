@@ -69,6 +69,16 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return localProcess.Listar(campeonatoId);
         }
 
+        public IList<Local> ListarLocais()
+        {
+            return localProcess.Listar();
+        }
+
+        public Local ConsultarLocal(Local local)
+        {
+            return localProcess.Consultar(local);
+        }
+
         //Partida
         public Resultado CriarPartida(Partida partida)
         {

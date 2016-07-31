@@ -82,9 +82,9 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
             return resultado;
         }
 
-        internal Resultado Login(string login, string senha)
+        internal Resultado<Usuario> Login(string login, string senha)
         {
-            Resultado resultado = new Resultado();
+            Resultado<Usuario> resultado = new Resultado<Usuario>();
 
             if (string.IsNullOrEmpty(login))
             {
@@ -98,7 +98,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
 
             if (resultado.Sucesso)
             { 
-                Usuario usuario = Select().Where(u => u.Login == login).FirstOrDefault();
+                Usuario usuario = Select().Where(u => u.Login == login).AsNoTracking().FirstOrDefault();
 
                 if (usuario == null)
                 {
@@ -110,6 +110,11 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
                     {
                         resultado.AddMensagemErro("Senha incorreta");
                     }
+                }
+
+                if (resultado.Sucesso)
+                {
+                    resultado.Retorno = usuario;
                 }
             }
 

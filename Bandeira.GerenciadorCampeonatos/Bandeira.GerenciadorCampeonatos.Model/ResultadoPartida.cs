@@ -11,6 +11,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         public int PartidaId { get; set; }
         public int? Valor { get; set; }
 
+        public int CompetidorId { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ResultadoPartidaId { get; set; }
@@ -18,7 +20,9 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [Required]
         [ForeignKey("PontuacaoId")]
         public virtual Pontuacao Pontuacao { get; set; }
-        
+
+        [Required]
+        [ForeignKey("CompetidorId")]
         public virtual Competidor Competidor { get; set; }
 
         [Required]

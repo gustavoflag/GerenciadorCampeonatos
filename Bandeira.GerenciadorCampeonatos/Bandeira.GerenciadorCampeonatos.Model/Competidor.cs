@@ -13,6 +13,8 @@ namespace Bandeira.GerenciadorCampeonatos.Model
 
         public int JogadorId { get; set; }
 
+        public int? ResultadoPartidaId { get; set; }
+
         [ForeignKey("PartidaId")]
         public virtual Partida Partida { get; set; }
 
@@ -20,7 +22,7 @@ namespace Bandeira.GerenciadorCampeonatos.Model
         [ForeignKey("JogadorId")]
         public virtual Jogador Jogador { get; set; }
 
-
-        //public virtual ResultadoPartida Resultado { get; set; }
+        [ForeignKey("ResultadoPartidaId")]
+        public virtual ResultadoPartida Resultado { get; set; }
     }
 }

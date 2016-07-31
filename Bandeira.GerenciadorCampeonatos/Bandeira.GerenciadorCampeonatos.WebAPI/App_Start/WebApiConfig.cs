@@ -15,10 +15,27 @@ namespace Bandeira.GerenciadorCampeonatos.WebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
+            /*config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+            );*/
+            
+            config.Routes.MapHttpRoute(
+                name: "ControllerOnly",
+                routeTemplate: "api/{controller}"             
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ControllerAndId",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: null,
+                constraints: new { id = @"^\d+$" } // Only integers 
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ControllerAndAction",
+                routeTemplate: "api/{controller}/{action}"
             );
 
             config.Filters.Add(new ValidateModelAttribute());

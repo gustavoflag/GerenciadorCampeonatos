@@ -68,7 +68,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business
             return usuarioProcess.Listar();
         }
 
-        public Resultado Login(string login, string senha)
+        public Resultado<Usuario> Login(string login, string senha)
         {
             return usuarioProcess.Login(login, senha);
         }

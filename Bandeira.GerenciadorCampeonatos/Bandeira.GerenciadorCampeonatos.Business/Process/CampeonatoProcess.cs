@@ -41,6 +41,7 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         protected override void Update(Campeonato objBanco, Campeonato obj)
         {
             objBanco.Nome = obj.Nome;
+            objBanco.QuantidadeJogadoresPorPartida = obj.QuantidadeJogadoresPorPartida;
         }
 
         protected override void Delete(Campeonato obj)
@@ -76,6 +77,13 @@ namespace Bandeira.GerenciadorCampeonatos.Business.Process
         public Campeonato ConsultarPorNome(string nome)
         {
             return Select().Where(c => c.Nome == nome).FirstOrDefault();
+        }
+
+        public IList<JogadorCampeonato> ListarClassificacao(int campeonatoId)
+        {
+            return container.Campeonatos.Where(c => c.CampeonatoId == campeonatoId)
+               //.Include("Jogadores.Jogador.Competidores.Resultado.Pontuacao")
+               .FirstOrDefault().Jogadores.ToList();
         }
     }
 }
